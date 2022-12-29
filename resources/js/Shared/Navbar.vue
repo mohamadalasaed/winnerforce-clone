@@ -153,7 +153,7 @@
                     </div>
                 </div>
 
-                <div class="dropdown ms-1 ms-lg-0 fs-5">
+                <div class="dropdown ms-1 ms-lg-0 fs-4">
                     <a href="/login"><i class="bi bi-person-fill text-dark mx-2"></i></a>
                     <a href="/search"><i class="bi bi-search text-dark mx-2"></i></a>
                     <a href="/cart"><i class="bi bi-bag text-dark mx-2"></i></a>

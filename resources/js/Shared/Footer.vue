@@ -120,7 +120,7 @@
                 <div class="col-12 col-xl-2 d-none d-xl-block"></div>
                 <div class="col-12 col-xl-2 d-none d-xl-block"></div>
                 <div class="col-12 col-xl-2 d-none d-xl-block"></div>
-                <ul class="col-12 col-xl-2 col-md-5 list-unstyled d-flex gap-3">
+                <ul class="col-12 col-xl-2 col-md-5 list-unstyled d-flex gap-3 justify-content-center">
                     <li class="HorizontalList__Item"><svg xmlns="http://www.w3.org/2000/svg" role="img"
                             viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-american_express">
                             <title id="pi-american_express">American Express</title>
