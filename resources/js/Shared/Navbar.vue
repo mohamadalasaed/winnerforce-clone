@@ -3,13 +3,13 @@
         <nav class="navbar navbar-expand-xl">
             <div class="container-fluid px-3 px-xl-5">
                 <!-- Logo START -->
-                <a class="navbar-brand" href="./">
+                <a class="navbar-brand" href="/">
                     <img class="light-mode-item navbar-brand-item"
                         src="//cdn.shopify.com/s/files/1/0351/4928/3461/files/website-size_copy_105x.png?v=1653660178"
                         srcset="//cdn.shopify.com/s/files/1/0351/4928/3461/files/website-size_copy_105x.png?v=1653660178 1x, //cdn.shopify.com/s/files/1/0351/4928/3461/files/website-size_copy_105x@2x.png?v=1653660178 2x"
                         alt="Winnerforce">
                 </a>
-                <p class="navbar-brand my-auto display-4 d-none d-lg-block fs-5">Welcome back <strong>{{ name }}</strong></p>
+                <p class="navbar-brand my-auto display-4 d-none d-lg-block fs-5">Welcome back <strong>mohamadalasaed</strong></p>
                 <!-- Logo END -->
 
                 <!-- Responsive navbar toggler -->
@@ -155,7 +155,6 @@
 
                 <div class="dropdown ms-1 ms-lg-0 fs-4">
                     <a href="/login"><i class="bi bi-person-fill text-dark mx-2"></i></a>
-                    <a href="/search"><i class="bi bi-search text-dark mx-2"></i></a>
                     <a href="/cart"><i class="bi bi-bag text-dark mx-2"></i></a>
                 </div>
             </div>
@@ -164,8 +163,5 @@
 </template>
 <script>
 export default {
-    props: {
-        name: String
-    }
 }
 </script>

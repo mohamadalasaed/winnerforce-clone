@@ -19,8 +19,13 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->string('sku');
-            $table->integer('size');
+            $table->string('img_folder')->unique();
             $table->integer('price');
+            $table->boolean('size_s')->nullable();
+            $table->boolean('size_m')->nullable();
+            $table->boolean('size_l')->nullable();
+            $table->boolean('size_xl')->nullable();
+            $table->boolean('size_xxl')->nullable();
             $table->timestamps();
         });
     }
