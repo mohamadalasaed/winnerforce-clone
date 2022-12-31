@@ -1,41 +1,18 @@
 <?php
 
-use App\Models\MenCategory;
+use App\Http\Controllers\PostController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
-use App\Models\Post;
 
 Route::get('/', function () {
+    // sleep(1);
     return inertia::render('Home', [
-        'name' => 'mohamadalasaed'
+        'name' => 'mohamadalasaed',
+        'posts' => Post::all()->take(4)
     ]);
 });
 
-// Route::get('/collections/men', function () {
-//    // sleep(1);
-//     return inertia::render('MenCards', [
-//         'posts' => Post::paginate(12)
-//     ]);
-// });
-
-// Route::get('/collections/men', function () {
-//     return Inertia::render('MenCards', [
-//         'posts' => Post::paginate(12)->filter(request(['search', 'category'])),
-//         'categories' => MenCategory::all()
-//     ]);
-// });
-
-
-
-Route::get('/collections/men', function () {
-    return Inertia::render('MenCards', [
-        'posts' => Post::query()
-            ->when(Request::input('search'), function ($query, $search) {
-                $query->where('title', 'like', "%{$search}%");
-            })
-            ->paginate(12),
-        'filters' => Request::only(['search']),
-        'categories' => MenCategory::all()
-    ]);
-});
+Route::get('/collections/men', [PostController::class, 'index']);
+Route::get('/collections/men/{post:slug}', [PostController::class, 'show']);

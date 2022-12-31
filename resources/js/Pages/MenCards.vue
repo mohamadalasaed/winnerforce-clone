@@ -14,9 +14,11 @@
     <header class="row py-5 justify-content-center bg-light gap-3">
         <div class="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center gap-2">
             <h4 class="my-auto">Categories <i class="bi bi-filter-square text-dark"></i> :</h4>
-            <select class="form-select w-50 text-dark p-2 rounded fs-6" aria-label="Default select example" v-model="selectedOption" >
-                <option value="All">All</option>
-                <option v-for="category in categories" :key="category.id" :value="category.name">{{ category.name }}</option>
+            <select class="form-select w-50 text-dark p-2 rounded fs-6 pointer" aria-label="Default select example"
+                id="select" v-model="selectedOption">
+                <option value="All" selected>All</option>
+                <option v-for="category in categories" :key="category.id" :value="category.name">{{ category.name }}
+                </option>
             </select>
         </div>
         <div class="col-xl-4 col-md-5 col-sm-12 d-flex justify-content-center">
@@ -28,7 +30,10 @@
 
     <MenCard :posts="posts.data" />
 
-    <Pagination :links="posts.links" class="my-5" />
+    <Pagination v-if="posts.data != 0" :links="posts.links" class="my-5" />
+    <div class="text-center my-4 px-3" v-if="posts.data == 0">
+        <p>No posts yet for {{ selectedOption }} category, Please check back later ;)</p>
+    </div>
 </template>
 
 <script setup>
@@ -39,27 +44,54 @@ import { ref, watch } from "vue";
 import { Inertia } from "@inertiajs/inertia";
 import debounce from "lodash/debounce"
 
-const selectedOption = ref('All');
-
 let props = defineProps({
     posts: Object,
     categories: Array,
     filters: Object,
+    all: String
 });
 
-let search = ref(props.filters.search);
+if (props.filters.page) { }
+
+let search = ref(null);
 watch(search, debounce(function (value) {
-    Inertia.get('/collections/men', { search: value }, {
-        preserveState: true,
-        replace: true
-    });
+    Inertia.get('/collections/men',
+        {
+            ...(props.filters.category !== null ? { category: props.filters.category, search: value } : { search: value }),
+            ...(props.filters.page !== null ? { page: props.filters.page, search: value } : { search: value }),
+        },
+        {
+            preserveState: true,
+            replace: true
+        });
 }, 300));
 
+let selectedOption = (props.filters.category == null ? ref('All') : ref(props.filters.category));
 watch(selectedOption, value => {
-    Inertia.get('/collections/men', { mencategory: value }, {
-        preserveState: true,
-        replace: true
-    });
+    if (value == 'All') {
+        Inertia.get('/collections/men');
+    } else {
+        Inertia.get('/collections/men', {
+            ...(props.filters.search !== null ? { category: value, search: props.filters.search } : { category: value }),
+        }, {
+            preserveState: true,
+            replace: true
+        });
+    }
 });
 
+// console.log(all);
+console.log(props.filters.search);
+console.log(props.filters.category);
+
+
 </script>
+<style>
+#select {
+    cursor: pointer;
+}
+
+#select>option {
+    cursor: pointer;
+}
+</style>

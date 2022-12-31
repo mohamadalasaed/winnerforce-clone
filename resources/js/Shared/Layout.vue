@@ -5,10 +5,7 @@
         <Footer />
     </div>
 </template>
-<script>
+<script setup>
 import Navbar from '../Shared/Navbar.vue';
 import Footer from '../Shared/Footer.vue';
-export default {
-    components: { Navbar, Footer }
-}
 </script>
