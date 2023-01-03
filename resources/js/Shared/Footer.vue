@@ -108,19 +108,11 @@
                     </form>
                 </div>
             </div>
-            <div class="row justify-content-center mt-5">
-                <div class="col-12 col-xl-3 col-md-5">
-                        <p class="d-flex gap-1">
-                        <a href="javascript:void(0);" class="d-flex text-decoration-none text-dark gap-2">
-                            <i class="bi bi-geo-alt-fill">Lebanon</i>
-                        </a>
-                        <a href="/" class="col text-dark text-decoration-none"> © 2022, WINNERFORCE AllRights Reserved.</a>
-                        </p>
+            <div class="row justify-content-center mt-5 gap-3">
+                <div class="col-md-7 col-sm-12 text-center">
+                        <a href="/" class="text-wrap text-dark text-decoration-none">This WinnerForce clone app was developed from scratch by <strong>mohamadalasaed</strong>.  2023, © All Rights Reserved.</a>
                 </div>
-                <div class="col-12 col-xl-2 d-none d-xl-block"></div>
-                <div class="col-12 col-xl-2 d-none d-xl-block"></div>
-                <div class="col-12 col-xl-2 d-none d-xl-block"></div>
-                <ul class="col-12 col-xl-2 col-md-5 list-unstyled d-flex gap-3 justify-content-center">
+                <ul class="col-md-4 col-sm-12 list-unstyled d-flex gap-3 justify-content-center my-auto px-3">
                     <li class="HorizontalList__Item"><svg xmlns="http://www.w3.org/2000/svg" role="img"
                             viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-american_express">
                             <title id="pi-american_express">American Express</title>

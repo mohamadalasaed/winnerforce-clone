@@ -14,10 +14,10 @@
     <header class="row py-5 justify-content-center bg-light gap-3">
         <div class="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center gap-2">
             <h4 class="my-auto">Categories <i class="bi bi-filter-square text-dark"></i> :</h4>
-            <select class="form-select w-50 text-dark p-2 rounded fs-6 pointer" aria-label="Default select example"
+            <select class="form-select w-50 text-dark p-2 rounded fs-6 pointer" role="button" aria-label="Default select example"
                 id="select" v-model="selectedOption">
-                <option value="All" selected>All</option>
-                <option v-for="category in categories" :key="category.id" :value="category.name">{{ category.name }}
+                <option value="All" role="button" selected>All</option>
+                <option role="button" v-for="category in categories" :key="category.id" :value="category.name">{{ category.name }}
                 </option>
             </select>
         </div>
@@ -86,12 +86,3 @@ console.log(props.filters.category);
 
 
 </script>
-<style>
-#select {
-    cursor: pointer;
-}
-
-#select>option {
-    cursor: pointer;
-}
-</style>
