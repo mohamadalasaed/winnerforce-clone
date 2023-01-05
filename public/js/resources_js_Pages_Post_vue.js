@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     post: Object,
-    size: Number
+    type: String
   },
   data: function data() {
     return {
@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Img',
   props: {
-    imgfolder: String,
+    img: String,
     nb: Number,
     imgnb: Number,
     active: Boolean
@@ -165,7 +165,7 @@ var _hoisted_29 = {
   "class": "fs-5"
 };
 var _hoisted_30 = {
-  "class": "py-3"
+  "class": "text-center mt-3 bg-white py-3"
 };
 var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Size:", -1 /* HOISTED */);
 var _hoisted_32 = {
@@ -303,41 +303,44 @@ var _hoisted_62 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   href: "#",
   "class": "btn btn-dark px-4 py-2 w-100"
 }, "BUY IT NOW")], -1 /* HOISTED */);
-var _hoisted_63 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"py-3\"><p> Give blood, sweat, and tears, then earn the respect of your fellow gym mates in the Extreme Stringer. This slim-fit, stringer cut design is functional and empowering with its lightweight material and high mobility features, as it instantly inspires you with the passion and fire needed to lift those weights. With a scooped neckline, a racerback design, and a dipped hem, this tank is the definition of athleisure. A contrasting printed Winnerforce logo backside is included to reflect your inner bodybuilder beast. Barcodes of raw materials being used: 10149-02 </p></div><div class=\"d-flex gap-3\"><span class=\"text-muted\">SHARE</span><ul class=\"d-flex list-unstyled gap-2\"><li class=\"nav-item\"><a href=\"https://www.facebook.com/winnerforce.lb/\" class=\"text-muted\" target=\"_blank\" rel=\"noopener\" aria-label=\"Facebook\"><i class=\"bi bi-facebook\"></i></a></li><li class=\"nav-item\"><a href=\"https://twitter.com/hashtag/winnerforce?lang=en\" class=\"text-muted\" target=\"_blank\" rel=\"noopener\" aria-label=\"Twitter\"><i class=\"bi bi-twitter\"></i></a></li><li class=\"nav-item\"><a href=\"https://www.pinterest.com/winnerforce/\" class=\"text-muted\" target=\"_blank\" rel=\"noopener\" aria-label=\"Pinterest\"><i class=\"bi bi-pinterest\"></i></a></li></ul></div>", 2);
+var _hoisted_63 = {
+  "class": "py-3"
+};
+var _hoisted_64 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"d-flex gap-3\"><span class=\"text-muted\">SHARE</span><ul class=\"d-flex list-unstyled gap-2\"><li class=\"nav-item\"><a href=\"https://www.facebook.com/winnerforce.lb/\" class=\"text-muted\" target=\"_blank\" rel=\"noopener\" aria-label=\"Facebook\"><i class=\"bi bi-facebook\"></i></a></li><li class=\"nav-item\"><a href=\"https://twitter.com/hashtag/winnerforce?lang=en\" class=\"text-muted\" target=\"_blank\" rel=\"noopener\" aria-label=\"Twitter\"><i class=\"bi bi-twitter\"></i></a></li><li class=\"nav-item\"><a href=\"https://www.pinterest.com/winnerforce/\" class=\"text-muted\" target=\"_blank\" rel=\"noopener\" aria-label=\"Pinterest\"><i class=\"bi bi-pinterest\"></i></a></li></ul></div>", 1);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
   var _component_Img = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Img");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "".concat($props.post.title, " - Winnerforce")
   }, null, 8 /* PROPS */, ["title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
-    imgfolder: $props.post.img_folder,
+    img: $props.post.img1,
     active: false,
     nb: 0,
     imgnb: 1
-  }, null, 8 /* PROPS */, ["imgfolder"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
-    imgfolder: $props.post.img_folder,
+  }, null, 8 /* PROPS */, ["img"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
+    img: $props.post.img2,
     active: false,
     nb: 1,
     imgnb: 2
-  }, null, 8 /* PROPS */, ["imgfolder"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
+  }, null, 8 /* PROPS */, ["img"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'd-none': 3 > $props.size
+      'd-none': $props.post.img3 == null
     }),
-    imgfolder: $props.post.img_folder,
+    img: $props.post.img3,
     active: false,
     nb: 2,
     imgnb: 3
-  }, null, 8 /* PROPS */, ["class", "imgfolder"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
+  }, null, 8 /* PROPS */, ["class", "img"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'd-none': 4 > $props.size
+      'd-none': $props.post.img4 == null
     }),
-    imgfolder: $props.post.img_folder,
+    img: $props.post.img4,
     active: false,
     nb: 3,
     imgnb: 4
-  }, null, 8 /* PROPS */, ["class", "imgfolder"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, null, 8 /* PROPS */, ["class", "img"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'd-none': 3 > $props.size
+      'd-none': $props.post.img3 == null
     }),
     type: "button",
     "data-bs-target": "#carouselExampleDark",
@@ -345,65 +348,69 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "aria-label": "Slide 3"
   }, null, 2 /* CLASS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'd-none': 4 > $props.size
+      'd-none': $props.post.img4 == null
     }),
     type: "button",
     "data-bs-target": "#carouselExampleDark",
     "data-bs-slide-to": "3",
     "aria-label": "Slide 4"
   }, null, 2 /* CLASS */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: "/images/thumbnailsMen/".concat($props.post.img_folder, "/1.jpg"),
+    src: $props.post.img1,
     "class": "d-block w-100",
     alt: "..."
   }, null, 8 /* PROPS */, _hoisted_14)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: "/images/thumbnailsMen/".concat($props.post.img_folder, "/2.jpg"),
+    src: $props.post.img2,
     "class": "d-block w-100",
     alt: "..."
   }, null, 8 /* PROPS */, _hoisted_16)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'd-none': 3 > $props.size,
-      'carousel-item': 3 < $props.size
+      'd-none': $props.post.img3 == null,
+      'carousel-item': $props.post.img3 != null
     })
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: "/images/thumbnailsMen/".concat($props.post.img_folder, "/3.jpg"),
+    src: $props.post.img3,
     "class": "d-block w-100",
     alt: "..."
   }, null, 8 /* PROPS */, _hoisted_17)], 2 /* CLASS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'd-none': 4 > $props.size,
-      'carousel-item': 4 == $props.size
+      'd-none': $props.post.img4 == null,
+      'carousel-item': $props.post.img4 != null
     })
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: "/images/thumbnailsMen/".concat($props.post.img_folder, "/4.jpg"),
+    src: $props.post.img4,
     "class": "d-block w-100",
     alt: "..."
   }, null, 8 /* PROPS */, _hoisted_18)], 2 /* CLASS */)]), _hoisted_19]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
-    imgfolder: $props.post.img_folder,
+    img: $props.post.img1,
     active: false,
     nb: 0,
     imgnb: 1
-  }, null, 8 /* PROPS */, ["imgfolder"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
-    imgfolder: $props.post.img_folder,
+  }, null, 8 /* PROPS */, ["img"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
+    img: $props.post.img2,
     active: false,
     nb: 1,
     imgnb: 2
-  }, null, 8 /* PROPS */, ["imgfolder"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
+  }, null, 8 /* PROPS */, ["img"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'd-none': 3 > $props.size
+      'd-none': $props.post.img3 == null
     }),
-    imgfolder: $props.post.img_folder,
+    img: $props.post.img3,
     active: false,
     nb: 2,
     imgnb: 3
-  }, null, 8 /* PROPS */, ["class", "imgfolder"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
+  }, null, 8 /* PROPS */, ["class", "img"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Img, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'd-none': 4 > $props.size
+      'd-none': $props.post.img4 == null
     }),
-    imgfolder: $props.post.img_folder,
+    img: $props.post.img4,
     active: false,
     nb: 3,
     imgnb: 4
-  }, null, 8 /* PROPS */, ["class", "imgfolder"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [_hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.sku), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "$" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.price) + ".00", 1 /* TEXT */)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 8 /* PROPS */, ["class", "img"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [_hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.sku), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "$" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.price) + ".00", 1 /* TEXT */)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, " OUT OF STOCK ", 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.post.size_s == 0 && $props.post.size_m == 0 && $props.post.size_l == 0 && $props.post.size_xl == 0 && $props.post.size_xxl == 0]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["py-3", {
+      'd-none': $props.type == 'accessories'
+    }])
+  }, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: "s",
     "class": "btn-check",
     type: "radio",
@@ -513,7 +520,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "left": "0",
       "right": "0"
     }
-  }, _hoisted_57, 2 /* CLASS */))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_58, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_59, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_60, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, _hoisted_57, 2 /* CLASS */))])])], 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !($props.post.size_s == 0 && $props.post.size_m == 0 && $props.post.size_l == 0 && $props.post.size_xl == 0 && $props.post.size_xxl == 0)]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_58, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_59, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_60, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "border-0 bg-transparent",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $data.quantity > 1 ? $data.quantity-- : $data.quantity;
@@ -523,7 +530,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return $data.quantity++;
     })
-  }, "+")])]), _hoisted_61, _hoisted_62]), _hoisted_63])])], 64 /* STABLE_FRAGMENT */);
+  }, "+")])]), _hoisted_61, _hoisted_62], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !($props.post.size_s == 0 && $props.post.size_m == 0 && $props.post.size_l == 0 && $props.post.size_xl == 0 && $props.post.size_xxl == 0)]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_63, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.description), 1 /* TEXT */)]), _hoisted_64])])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -544,7 +551,7 @@ var _hoisted_1 = ["src", "data-bs-slide-to"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
     id: "img",
-    src: "/images/thumbnailsMen/".concat($props.imgfolder, "/").concat($props.imgnb, ".jpg"),
+    src: $props.img,
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["img-fluid", {
       'border-dark': $props.nb == 0
     }]),

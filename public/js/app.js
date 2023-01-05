@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "container-fluid border-top border-opacity-50 px-4 py-5 mt-auto"
+  "class": "container-fluid border-top border-opacity-50 px-4 py-5 mt-auto bg-white"
 };
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "row justify-content-center"
@@ -324,7 +324,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "d-flex flex-column min-vh-100"
+  "class": "d-flex flex-column min-vh-100 bg-light"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Navbar"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Footer"])]);
@@ -454,22 +454,22 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, "All Products")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "dropdown-item"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "/collections/women-legging",
+  href: "/collections/women?category=Legging",
   "class": "text-dark text-decoration-none"
 }, "Leggings")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "dropdown-item"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "/collections/women-croptops",
+  href: "/collections/women?category=CropTop",
   "class": "text-dark text-decoration-none"
 }, "Crop Tops")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "dropdown-item"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "/collections/women-sportbras",
+  href: "/collections/women?category=SportsBras",
   "class": "text-dark text-decoration-none"
 }, "Sports Bras")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "dropdown-item"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "/collections/women-shorts",
+  href: "/collections/women?category=Short",
   "class": "text-dark text-decoration-none"
 }, "shorts")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "my-auto"
@@ -490,24 +490,24 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, "All Accessories")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "dropdown-item"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "/collections/accessories/caps",
-  "class": "text-dark text-decoration-none"
-}, "Head wear")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
-  "class": "dropdown-item"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "/collections/accessories/bags",
+  href: "/collections/accessories?category=Bags",
   "class": "text-dark text-decoration-none"
 }, "Bags")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "dropdown-item"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "/collections/accessories/socks",
+  href: "/collections/accessories?category=Socks",
   "class": "text-dark text-decoration-none"
 }, "Socks")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "dropdown-item"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "/collections/accessories/facemask",
+  href: "/collections/accessories?category=FaceMask",
   "class": "text-dark text-decoration-none"
-}, "Face-Mask")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+}, "Face-Mask")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "dropdown-item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "/collections/accessories?category=Bottles",
+  "class": "text-dark text-decoration-none"
+}, "Bottels")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "my-auto"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "btn btn-secondary bg-white text-dark border-0 fs-6 fw-bold"
@@ -791,6 +791,16 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./AccessoriesCards": [
+		"./resources/js/Pages/AccessoriesCards.vue",
+		"/js/vendor",
+		"resources_js_Pages_AccessoriesCards_vue"
+	],
+	"./AccessoriesCards.vue": [
+		"./resources/js/Pages/AccessoriesCards.vue",
+		"/js/vendor",
+		"resources_js_Pages_AccessoriesCards_vue"
+	],
 	"./Home": [
 		"./resources/js/Pages/Home.vue",
 		"resources_js_Pages_Home_vue"
@@ -798,6 +808,14 @@ var map = {
 	"./Home.vue": [
 		"./resources/js/Pages/Home.vue",
 		"resources_js_Pages_Home_vue"
+	],
+	"./Login": [
+		"./resources/js/Pages/Login.vue",
+		"resources_js_Pages_Login_vue"
+	],
+	"./Login.vue": [
+		"./resources/js/Pages/Login.vue",
+		"resources_js_Pages_Login_vue"
 	],
 	"./MenCards": [
 		"./resources/js/Pages/MenCards.vue",
@@ -816,6 +834,24 @@ var map = {
 	"./Post.vue": [
 		"./resources/js/Pages/Post.vue",
 		"resources_js_Pages_Post_vue"
+	],
+	"./Register": [
+		"./resources/js/Pages/Register.vue",
+		"resources_js_Pages_Register_vue"
+	],
+	"./Register.vue": [
+		"./resources/js/Pages/Register.vue",
+		"resources_js_Pages_Register_vue"
+	],
+	"./WomenCards": [
+		"./resources/js/Pages/WomenCards.vue",
+		"/js/vendor",
+		"resources_js_Pages_WomenCards_vue"
+	],
+	"./WomenCards.vue": [
+		"./resources/js/Pages/WomenCards.vue",
+		"/js/vendor",
+		"resources_js_Pages_WomenCards_vue"
 	]
 };
 function webpackAsyncContext(req) {

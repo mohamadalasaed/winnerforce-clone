@@ -86,19 +86,19 @@
                                                 Products</a>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/women-legging"
+                                            <a href="/collections/women?category=Legging"
                                                 class="text-dark text-decoration-none">Leggings</a>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/women-croptops"
+                                            <a href="/collections/women?category=CropTop"
                                                 class="text-dark text-decoration-none">Crop Tops</a>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/women-sportbras"
+                                            <a href="/collections/women?category=SportsBras"
                                                 class="text-dark text-decoration-none">Sports Bras</a>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/women-shorts"
+                                            <a href="/collections/women?category=Short"
                                                 class="text-dark text-decoration-none">shorts</a>
                                         </li>
                                     </ul>
@@ -118,20 +118,20 @@
                                                 class="text-dark text-decoration-none">All Accessories</a>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/accessories/caps"
-                                                class="text-dark text-decoration-none">Head wear</a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                            <a href="/collections/accessories/bags"
+                                            <a href="/collections/accessories?category=Bags"
                                                 class="text-dark text-decoration-none">Bags</a>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/accessories/socks"
+                                            <a href="/collections/accessories?category=Socks"
                                                 class="text-dark text-decoration-none">Socks</a>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/accessories/facemask"
+                                            <a href="/collections/accessories?category=FaceMask"
                                                 class="text-dark text-decoration-none">Face-Mask</a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a href="/collections/accessories?category=Bottles"
+                                                class="text-dark text-decoration-none">Bottels</a>
                                         </li>
                                     </ul>
                                 </div>

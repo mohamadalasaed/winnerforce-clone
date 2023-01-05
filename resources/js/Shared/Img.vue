@@ -1,6 +1,6 @@
 <template>
 
-    <img id="img" :src="`/images/thumbnailsMen/${imgfolder}/${imgnb}.jpg`" class="img-fluid" role="button"
+    <img id="img" :src="img" class="img-fluid" role="button"
         :class="{'border-dark': nb==0}"
         data-bs-target="#carouselExampleDark" :data-bs-slide-to="nb" aria-current="true" aria-label="Slide 4"/>
 
@@ -19,7 +19,7 @@
 <script setup>
 
 let props = defineProps({
-    imgfolder: String,
+    img: String,
     nb: Number,
     imgnb: Number,
     active: Boolean

@@ -4,10 +4,10 @@
 
     <section class="my-4">
         <div class="text-center">
-            <h4>MEN</h4>
+            <h4>ACCESSORIES</h4>
         </div>
         <div class="text-center px-3">
-            <p>Deliver maximum results and reach your full athletic potential in our Men's<br>Collection. </p>
+            <p>The fitness world needs Winnerforce gym accessories like bags, caps, and socks<br>designed to help you join the athletic club.</p>
         </div>
     </section>
 
@@ -28,7 +28,7 @@
     </header>
 
 
-    <Card :posts="posts.data" :type="'men'"/>
+    <Card :posts="posts.data" :type="'accessories'"/>
 
     <Pagination v-if="posts.data != 0" :links="posts.links" class="my-5" />
     <div class="text-center my-4 px-3" v-if="posts.data == 0">
@@ -55,7 +55,7 @@ if (props.filters.page) { }
 
 let search = ref(null);
 watch(search, debounce(function (value) {
-    Inertia.get('/collections/men',
+    Inertia.get('/collections/accessories',
         {
             ...(props.filters.category !== null ? { category: props.filters.category, search: value } : { search: value }),
             ...(props.filters.page !== null ? { page: props.filters.page, search: value } : { search: value }),
@@ -69,9 +69,9 @@ watch(search, debounce(function (value) {
 let selectedOption = (props.filters.category == null ? ref('All') : ref(props.filters.category));
 watch(selectedOption, value => {
     if (value == 'All' ) {
-        Inertia.get('/collections/men?page=1');
+        Inertia.get('/collections/accessories');
     } else {
-        Inertia.get('/collections/men', {
+        Inertia.get('/collections/accessories', {
             ...(props.filters.search !== null ? { category: value, search: props.filters.search } : { category: value }),
         }, {
             preserveState: true,

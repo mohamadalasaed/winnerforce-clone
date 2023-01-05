@@ -1,7 +1,7 @@
 <template>
-    <div class="d-flex flex-column min-vh-100">
+    <div class="d-flex flex-column min-vh-100 bg-light">
         <Navbar />
-        <slot />
+            <slot />
         <Footer />
     </div>
 </template>

@@ -6,17 +6,17 @@
         <div class="col-xxl-5 col-lg-5 col-md-6">
             <div class="row mb-3 d-none d-md-flex mt-5 px-5">
                 <div class="col">
-                    <Img :imgfolder="post.img_folder" :active="false" :nb="0" :imgnb="1" />
+                    <Img :img="post.img1" :active="false" :nb="0" :imgnb="1" />
                 </div>
                 <div class="col">
-                    <Img :imgfolder="post.img_folder" :active="false" :nb="1" :imgnb="2" />
+                    <Img :img="post.img2" :active="false" :nb="1" :imgnb="2" />
                 </div>
                 <div class="col">
-                    <Img :class="{ 'd-none': 3 > size }" :imgfolder="post.img_folder" :active="false" :nb="2"
+                    <Img :class="{ 'd-none': post.img3==null }" :img="post.img3" :active="false" :nb="2"
                         :imgnb="3" />
                 </div>
                 <div class="col">
-                    <Img :class="{ 'd-none': 4 > size }" :imgfolder="post.img_folder" :active="false" :nb="3"
+                    <Img :class="{ 'd-none': post.img4==null }" :img="post.img4" :active="false" :nb="3"
                         :imgnb="4" />
                 </div>
             </div>
@@ -26,23 +26,23 @@
                         aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
-                    <button :class="{ 'd-none': 3 > size }" type="button" data-bs-target="#carouselExampleDark"
+                    <button :class="{ 'd-none': post.img3==null }" type="button" data-bs-target="#carouselExampleDark"
                         data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    <button :class="{ 'd-none': 4 > size }" type="button" data-bs-target="#carouselExampleDark"
+                    <button :class="{ 'd-none': post.img4==null }" type="button" data-bs-target="#carouselExampleDark"
                         data-bs-slide-to="3" aria-label="Slide 4"></button>
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
-                        <img :src="`/images/thumbnailsMen/${post.img_folder}/1.jpg`" class="d-block w-100" alt="...">
+                        <img :src="post.img1" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
-                        <img :src="`/images/thumbnailsMen/${post.img_folder}/2.jpg`" class="d-block w-100" alt="...">
+                        <img :src="post.img2" class="d-block w-100" alt="...">
                     </div>
-                    <div :class="{ 'd-none': 3 > size, 'carousel-item': 3 < size }">
-                        <img :src="`/images/thumbnailsMen/${post.img_folder}/3.jpg`" class="d-block w-100" alt="...">
+                    <div :class="{ 'd-none': post.img3==null, 'carousel-item': post.img3!=null }">
+                        <img :src="post.img3" class="d-block w-100" alt="...">
                     </div>
-                    <div :class="{ 'd-none': 4 > size, 'carousel-item': 4 == size }">
-                        <img :src="`/images/thumbnailsMen/${post.img_folder}/4.jpg`" class="d-block w-100" alt="...">
+                    <div :class="{ 'd-none': post.img4==null, 'carousel-item': post.img4!=null }">
+                        <img :src="post.img4" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
@@ -58,17 +58,17 @@
             </div>
             <div class="row d-md-none mt-3 px-2">
                 <div class="col">
-                    <Img :imgfolder="post.img_folder" :active="false" :nb="0" :imgnb="1" />
+                    <Img :img="post.img1" :active="false" :nb="0" :imgnb="1" />
                 </div>
                 <div class="col">
-                    <Img :imgfolder="post.img_folder" :active="false" :nb="1" :imgnb="2" />
+                    <Img :img="post.img2" :active="false" :nb="1" :imgnb="2" />
                 </div>
                 <div class="col">
-                    <Img :class="{ 'd-none': 3 > size }" :imgfolder="post.img_folder" :active="false" :nb="2"
+                    <Img :class="{ 'd-none': post.img3==null}" :img="post.img3" :active="false" :nb="2"
                         :imgnb="3" />
                 </div>
                 <div class="col">
-                    <Img :class="{ 'd-none': 4 > size }" :imgfolder="post.img_folder" :active="false" :nb="3"
+                    <Img :class="{ 'd-none': post.img4==null }" :img="post.img4" :active="false" :nb="3"
                         :imgnb="4" />
                 </div>
             </div>
@@ -80,7 +80,13 @@
                 <p>{{ post.sku }}</p>
                 <div><span>${{ post.price }}.00</span></div>
             </div>
-            <div class="py-3">
+            <div class="text-center mt-3 bg-white py-3" v-show="post.size_s==0&&post.size_m==0&&post.size_l==0&&post.size_xl==0&&post.size_xxl==0">
+                OUT OF STOCK 
+            </div>
+            <div class="py-3"
+                 :class="{'d-none': type=='accessories'}" 
+                 v-show="!(post.size_s==0&&post.size_m==0&&post.size_l==0&&post.size_xl==0&&post.size_xxl==0)"
+                 >
                 <span>Size:</span>
                 <ul class="list-unstyled d-flex gap-3 mt-2">
                     <li class="" style="position:relative">
@@ -133,7 +139,7 @@
                     </li>
                 </ul>
             </div>
-            <div>
+            <div v-show="!(post.size_s==0&&post.size_m==0&&post.size_l==0&&post.size_xl==0&&post.size_xxl==0)">
                 <span>Quantity:</span>
                 <div class="w-50">
                 <div class="border d-flex justify-content-around w-75 py-2 mt-2 px-1">
@@ -150,15 +156,7 @@
                 </div>
             </div>
             <div class="py-3">
-                <p>
-                    Give blood, sweat, and tears, then earn the respect of your fellow gym mates in the Extreme
-                    Stringer. This slim-fit, stringer cut design is functional and empowering with its lightweight
-                    material and high mobility features, as it instantly inspires you with the passion and fire
-                    needed to lift those weights. With a scooped neckline, a racerback design, and a dipped hem,
-                    this tank is the definition of athleisure. A contrasting printed Winnerforce logo backside is
-                    included to reflect your inner bodybuilder beast.
-                    Barcodes of raw materials being used: 10149-02
-                </p>
+                <p>{{ post.description }}</p>
             </div>
             <div class="d-flex gap-3">
                 <span class="text-muted">SHARE</span>
@@ -222,7 +220,7 @@ export default {
     components: { Img },
     props: {
         post: Object,
-        size: Number
+        type: String
     },
     data() {
         return { quantity: 1 };

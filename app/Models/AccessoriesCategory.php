@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MenCategory extends Model
+class AccessoriesCategory extends Model
 {
     use HasFactory;
 
     public function posts(){
-        return $this->hasMany(PostMen::class);
+        return $this->hasMany(PostAccessories::class);
     }
 }

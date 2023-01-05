@@ -1,5 +1,5 @@
 <template>
-    <footer class="container-fluid border-top border-opacity-50 px-4 py-5 mt-auto">
+    <footer class="container-fluid border-top border-opacity-50 px-4 py-5 mt-auto bg-white">
             <div class="row justify-content-center">
                 <div class="col-12 col-xl-3 col-md-6">
                     <h2 class="fs-6 fw-bold">WHO WE ARE</h2>
