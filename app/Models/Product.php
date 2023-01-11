@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PostAccessories extends Model
+class Product extends Model
 {
     use HasFactory;
-    protected $with = ['accessories_category'];
+    
+    // protected $with = ['category_id'];
 
-    public function accessories_category()
+    public function category()
     {
-        return $this->belongsTo(AccessoriesCategory::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function scopeFilter($query, array $filters)
@@ -22,7 +23,7 @@ class PostAccessories extends Model
         $query->where('title', 'like', '%' . $search . '%')));
 
         $query->when($filters['category'] ?? false, fn ($query, $category) =>
-        $query->whereHas('accessories_category', fn ($query) =>
+        $query->whereHas('category', fn ($query) =>
         $query->where('name', $category)));
     }
 }

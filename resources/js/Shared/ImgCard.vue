@@ -1,6 +1,6 @@
 <template>
-    <img :src="post.img1" class="card-img-top" />
-    <img id="img-hover" :src="post.img2" class="card-img-top img-fluid" />
+    <img :src="product.img1" class="card-img-top" />
+    <img id="img-hover" :src="product.img2" class="card-img-top img-fluid" />
 </template>
 <style>
   #img-hover{
@@ -16,6 +16,6 @@
 </style>
 <script setup>
     defineProps({
-        post: Object
+        product: Object
     })
 </script>

@@ -1,28 +1,22 @@
 <template>
 
-    <img id="img" :src="img" class="img-fluid" role="button"
-        :class="{'border-dark': nb==0}"
-        data-bs-target="#carouselExampleDark" :data-bs-slide-to="nb" aria-current="true" aria-label="Slide 4"/>
+    <img :src="img" class="img-fluid border" role="button" @click="updateActive"
+        :class="{'border-dark': this.active == this.nb}" data-bs-target="#carouselExampleDark" :data-bs-slide-to="nb" aria-current="true"
+        aria-label="Slide 4" />
 
 </template>
+<script>
 
-<style>
-    #img{
-        border: 1px solid rgba(0, 0, 0, 0.149);
+export default {
+    props: {
+        img: String,
+        nb: Number,
+        active: ''
+    },
+    methods: {
+        updateActive(){
+            this.$emit('onActive', this.nb)
+        }
     }
-    #img:active{
-        border:2px solid black;
-        transition: border 1s ease;
-    }
-</style>
-
-<script setup>
-
-let props = defineProps({
-    img: String,
-    nb: Number,
-    imgnb: Number,
-    active: Boolean
-});
-
+}
 </script>

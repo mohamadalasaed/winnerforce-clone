@@ -4,14 +4,17 @@
         <nav class="navbar navbar-expand-xl">
             <div class="container-fluid px-3 px-xl-5">
 
-                <div class="d-xl-flex d-none">
-                    <a class="navbar-brand" href="/">
+                <div class="d-xl-flex d-none position-relative">
+                    <Link class="navbar-brand d-flex" href="/">
                         <img class="light-mode-item navbar-brand-item"
                             src="//cdn.shopify.com/s/files/1/0351/4928/3461/files/website-size_copy_105x.png?v=1653660178"
                             srcset="//cdn.shopify.com/s/files/1/0351/4928/3461/files/website-size_copy_105x.png?v=1653660178 1x, //cdn.shopify.com/s/files/1/0351/4928/3461/files/website-size_copy_105x@2x.png?v=1653660178 2x"
                             alt="Winnerforce">
-                    </a>
-                    <!-- <span class="navbar-brand my-auto d-none d-lg-block fs-5">Welcome back <strong>mohamadalasaed</strong></span> -->
+                        <span v-if="$page.props.auth"
+                            class="position-absolute mt-1 start-100 badge rounded bg-dark d-none d-lg-block">
+                            welcome {{ $page.props.auth.user.firstname }}
+                        </span>
+                    </Link>
                 </div>
 
                 <div>
@@ -22,12 +25,12 @@
                 </div>
 
                 <div class="d-xl-none mx-auto">
-                    <a class="text-center" href="/">
+                    <Link class="text-center" href="/">
                         <img class="light-mode-item navbar-brand-item"
                             src="//cdn.shopify.com/s/files/1/0351/4928/3461/files/website-size_copy_105x.png?v=1653660178"
                             srcset="//cdn.shopify.com/s/files/1/0351/4928/3461/files/website-size_copy_105x.png?v=1653660178 1x, //cdn.shopify.com/s/files/1/0351/4928/3461/files/website-size_copy_105x@2x.png?v=1653660178 2x"
                             alt="Winnerforce">
-                    </a>
+                    </Link>
                 </div>
 
 
@@ -43,31 +46,31 @@
                         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3 fw-bold ">
                             <li class="my-auto">
                                 <div class="dropdown">
-                                    <a class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 fs-6 fw-bold"
+                                    <Link class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 fs-6 fw-bold"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         MEN
-                                    </a>
+                                    </Link>
 
                                     <ul class="dropdown-menu">
                                         <li class="dropdown-item">
-                                            <a href="/collections/men" class="text-dark text-decoration-none">All
-                                                Products</a>
+                                            <Link href="/collections/men" class="text-dark text-decoration-none">All
+                                                Products</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/men?category=Sweatshirt"
-                                                class="text-dark text-decoration-none">SweatShirts</a>
+                                            <Link href="/collections/men?category=Sweatshirt"
+                                                class="text-dark text-decoration-none">SweatShirts</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/men?category=Pant"
-                                                class="text-dark text-decoration-none">Pants</a>
+                                            <Link href="/collections/men?category=Pant"
+                                                class="text-dark text-decoration-none">Pants</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/men?category=T-shirt"
-                                                class="text-dark text-decoration-none">T-Shirts</a>
+                                            <Link href="/collections/men?category=T-shirt"
+                                                class="text-dark text-decoration-none">T-Shirts</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/men?category=Tank"
-                                                class="text-dark text-decoration-none">Tanks</a>
+                                            <Link href="/collections/men?category=Tank"
+                                                class="text-dark text-decoration-none">Tanks</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -75,31 +78,31 @@
 
                             <li class="my-auto">
                                 <div class="dropdown">
-                                    <a class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 fs-6 fw-bold"
+                                    <Link class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 fs-6 fw-bold"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         WOMEN
-                                    </a>
+                                    </Link>
 
                                     <ul class="dropdown-menu">
                                         <li class="dropdown-item">
-                                            <a href="/collections/women" class="text-dark text-decoration-none">All
-                                                Products</a>
+                                            <Link href="/collections/women" class="text-dark text-decoration-none">All
+                                                Products</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/women?category=Legging"
-                                                class="text-dark text-decoration-none">Leggings</a>
+                                            <Link href="/collections/women?category=Legging"
+                                                class="text-dark text-decoration-none">Leggings</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/women?category=CropTop"
-                                                class="text-dark text-decoration-none">Crop Tops</a>
+                                            <Link href="/collections/women?category=CropTop"
+                                                class="text-dark text-decoration-none">Crop Tops</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/women?category=SportsBras"
-                                                class="text-dark text-decoration-none">Sports Bras</a>
+                                            <Link href="/collections/women?category=SportsBras"
+                                                class="text-dark text-decoration-none">Sports Bras</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/women?category=Short"
-                                                class="text-dark text-decoration-none">shorts</a>
+                                            <Link href="/collections/women?category=Short"
+                                                class="text-dark text-decoration-none">shorts</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -107,56 +110,56 @@
 
                             <li class="my-auto">
                                 <div class="dropdown">
-                                    <a class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 fs-6 fw-bold"
+                                    <Link class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 fs-6 fw-bold"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         ACCESSORIES
-                                    </a>
+                                    </Link>
 
                                     <ul class="dropdown-menu">
                                         <li class="dropdown-item">
-                                            <a href="/collections/accessories"
-                                                class="text-dark text-decoration-none">All Accessories</a>
+                                            <Link href="/collections/accessories"
+                                                class="text-dark text-decoration-none">All Accessories</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/accessories?category=Bags"
-                                                class="text-dark text-decoration-none">Bags</a>
+                                            <Link href="/collections/accessories?category=Bags"
+                                                class="text-dark text-decoration-none">Bags</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/accessories?category=Socks"
-                                                class="text-dark text-decoration-none">Socks</a>
+                                            <Link href="/collections/accessories?category=Socks"
+                                                class="text-dark text-decoration-none">Socks</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/accessories?category=FaceMask"
-                                                class="text-dark text-decoration-none">Face-Mask</a>
+                                            <Link href="/collections/accessories?category=FaceMask"
+                                                class="text-dark text-decoration-none">Face-Mask</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/collections/accessories?category=Bottles"
-                                                class="text-dark text-decoration-none">Bottels</a>
+                                            <Link href="/collections/accessories?category=Bottles"
+                                                class="text-dark text-decoration-none">Bottels</Link>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
                             <li class="my-auto">
                                 <div>
-                                    <a class="btn btn-secondary bg-white text-dark border-0 fs-6 fw-bold">Sale</a>
+                                    <Link class="btn btn-secondary bg-white text-dark border-0 fs-6 fw-bold">Sale</Link>
                                 </div>
                             </li>
 
                             <li class="my-auto">
                                 <div class="dropdown">
-                                    <a class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 fs-6 fw-bold"
+                                    <Link class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 fs-6 fw-bold"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         AMBASSADOR PROGRAM
-                                    </a>
+                                    </Link>
 
                                     <ul class="dropdown-menu">
                                         <li class="dropdown-item">
-                                            <a href="/ambassador" class="text-dark text-decoration-none">Become an
-                                                ambassador</a>
+                                            <Link href="/ambassador" class="text-dark text-decoration-none">Become an
+                                                ambassador</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <a href="/login" class="text-dark text-decoration-none">Log in to your
-                                                account</a>
+                                            <Link href="/login" class="text-dark text-decoration-none">Log in to your
+                                                account</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -166,33 +169,93 @@
                     </div>
                 </div>
                 <ul class="d-flex list-unstyled gap-2 justify-content-center align-items-center my-auto">
-                    <li><a href="/login"><i class="bi bi-person-fill text-dark fs-4"></i></a></li>
-                    <li class="mb-1"><a href="/cart" data-bs-toggle="offcanvas" data-bs-target="#cart"
-                            aria-controls="cart"><i class="bi bi-bag text-dark fs-4"></i></a></li>
+                    <li v-if="$page.props.auth"><Link href="/logout" method="post" @click="this.$store.commit('setCartToEmpty')"><i
+                                class="bi bi-person-fill text-danger fs-4"></i></Link></li>
+                    <li v-if="$page.props.auth == null"><Link href="/login"  @click="cart"><i
+                                class="bi bi-person-fill text-dark fs-4"></i></Link></li>
+                    <li class="mb-1">
+                        <Link href="/cart" class="position-relative" data-bs-toggle="offcanvas" data-bs-target="#cart"
+                            aria-controls="cart">
+                            <i class="bi bi-bag text-dark fs-4 position-relative"></i>
+                            <span v-show="JSON.stringify(this.$store.state.cart) != '[]'"
+                                class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </nav>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="cartLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="cartLabel">Offcanvas</h5>
+        <div class="offcanvas offcanvas-end bg-light" :class="{ '': $store.state.toggle }" aria-expanded="true"
+            tabindex="-1" id="cart" aria-labelledby="cartLabel">
+            <div class="offcanvas-header border-bottom px-4">
+                <p class="offcanvas-title fs-5" id="cartLabel">CART</p>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
-                <div>
-                    Some text as placeholder. In real life you can have the elements you have chosen. Like,
-                    text, images, lists, etc.
+            <div class="offcanvas-body d-flex flex-column gap-3">
+                <div v-show="JSON.stringify(this.$store.state.cart) === '[]'" class="text-center my-auto">
+                    <p>YOUR CART IS EMPTY</p>
                 </div>
-                <div class="dropdown mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                        Dropdown button
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                <div class="row justify-content-center" v-for="product in cart" :key="product.product.id">
+                    <ShortCartItem :product="product" :key="product.product.id" />
                 </div>
+            </div>
+
+            <div class="p-4 border-top d-flex flex-column">
+                <span class="text-dark">Add Order Note</span>
+                <span class="mt-1">Shispanping & taxes calculated at checkout</span>
+                <a href="/checkouts" class="btn btn-dark px-4 py-2 w-100 rounded-0 mt-4">CHECKOUT . ${{ $store.state.total }}.00
+                    USD</a>
             </div>
         </div>
     </header>
 </template>
+<script>
+import { Link } from '@inertiajs/inertia-vue3';
+import ShortCartItem from '../Shared/ShortCartItem.vue';
+export default {
+    components: { Link, ShortCartItem },
+    props: {
+    },
+    data() {
+    },
+    beforeMount() {
+        if(this.$page.props.auth){
+            this.$store.dispatch('getProducts');
+        }
+    },
+    computed: {
+        cart() {
+            // if(this.$page.props.auth){
+            //     return this.$store.getters['products']
+            // }
+            return this.$store.state.cart
+        }
+    },
+    // data() {
+    //     return {
+    //         quantity: 1,
+    //          cart: $store.dispatch('getProducts')
+    //     };
+    // },
+    // methods: {
+    //     getProducts() {
+    //         axios.get('/getproducts').then(response => {
+    //             this.cart = response.data.products;
+    //             this.count = response.data.count;
+    //         })
+    //     }
+    // },
+    // created() {
+    //     this.getProducts()
+    // }
+    // mounted(){
+    //     this.cart = $store.commit('decreaseQty')
+    //     }
+    created: function () {
+        if(this.$page.props.auth){
+            this.$store.getters['products']
+        }
+    },
+};
+</script>

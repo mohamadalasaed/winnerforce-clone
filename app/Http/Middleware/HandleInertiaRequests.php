@@ -2,7 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -34,14 +36,27 @@ class HandleInertiaRequests extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
+    // public function share(Request $request): array
+    // {
+    //     return array_merge(parent::share($request), [
+    //         'auth' => [
+    //             'user' => [
+    //                 'username' => 'jhondoe'
+    //             ]
+    //         ]
+    //     ]);
+    // }
+
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            'auth' => [
+            'auth' => Auth::user() ? [
                 'user' => [
-                    'username' => 'mohamadalasaed'
+                    'firstname' => Auth::user()->firstname,
+                    // 'products' => Cart::where('user_id', auth()->user()->id)->with('post_men')->get()
+                    // 'cart' => $request->json()->all()
                 ]
-            ]
+            ] : null
         ]);
     }
 }

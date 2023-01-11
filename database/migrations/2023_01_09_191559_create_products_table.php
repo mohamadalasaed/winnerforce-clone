@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('post_mens', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('men_category_id');
-            $table->string('slug')->unique();
+            $table->foreignId('category_id');
             $table->string('title');
-            $table->string('sku');
+            $table->string('slug')->unique();
             $table->integer('price');
+            $table->string('sku');
+            $table->text('description');
             $table->boolean('size_s')->nullable();
             $table->boolean('size_m')->nullable();
             $table->boolean('size_l')->nullable();
@@ -29,9 +30,10 @@ return new class extends Migration
             $table->string('img2')->nullable();
             $table->string('img3')->nullable();
             $table->string('img4')->nullable();
-            $table->text('description');
+            $table->integer('imgs');
+            $table->string('type');
             $table->timestamps();
-        });
+          });
     }
 
     /**
@@ -41,6 +43,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_mens');
+        Schema::dropIfExists('products');
     }
 };

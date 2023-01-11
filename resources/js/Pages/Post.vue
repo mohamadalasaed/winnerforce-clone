@@ -2,34 +2,30 @@
 
     <Head :title="`${post.title} - Winnerforce`" />
 
-    <section class="row justify-content-center bg-light">
+    <section class="row justify-content-center bg-light border-bottom pb-5">
         <div class="col-xxl-5 col-lg-5 col-md-6">
             <div class="row mb-3 d-none d-md-flex mt-5 px-5">
                 <div class="col">
-                    <Img :img="post.img1" :active="false" :nb="0" :imgnb="1" />
+                    <Img :img="post.img1" :nb="0" :active="active" @onActive="updateActive" />
                 </div>
                 <div class="col">
-                    <Img :img="post.img2" :active="false" :nb="1" :imgnb="2" />
+                    <Img :img="post.img2" :nb="1" :active="active" @onActive="updateActive" />
                 </div>
                 <div class="col">
-                    <Img :class="{ 'd-none': post.img3==null }" :img="post.img3" :active="false" :nb="2"
-                        :imgnb="3" />
+                    <Img :class="{ 'd-none': post.img3 == null }" :img="post.img3" :active="active" :nb="2"
+                        @onActive="updateActive" />
                 </div>
                 <div class="col">
-                    <Img :class="{ 'd-none': post.img4==null }" :img="post.img4" :active="false" :nb="3"
-                        :imgnb="4" />
+                    <Img :class="{ 'd-none': post.img4 == null }" :img="post.img4" :nb="3" :active="active"
+                        @onActive="updateActive" />
                 </div>
             </div>
             <div id="carouselExampleDark" class="carousel carousel-dark slide">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button :class="{ 'd-none': post.img3==null }" type="button" data-bs-target="#carouselExampleDark"
-                        data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    <button :class="{ 'd-none': post.img4==null }" type="button" data-bs-target="#carouselExampleDark"
-                        data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <ButtonImg :nb="0" @onActive="updateActive" />
+                    <ButtonImg :nb="1" @onActive="updateActive"/>
+                    <ButtonImg v-show="post.img3!=null" :nb="2" @onActive="updateActive"/>
+                    <ButtonImg v-show="post.img4!=null" :nb="3" @onActive="updateActive"/>
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
@@ -38,38 +34,30 @@
                     <div class="carousel-item" data-bs-interval="2000">
                         <img :src="post.img2" class="d-block w-100" alt="...">
                     </div>
-                    <div :class="{ 'd-none': post.img3==null, 'carousel-item': post.img3!=null }">
+                    <div :class="{ 'd-none': post.img3 == null, 'carousel-item': post.img3 != null }">
                         <img :src="post.img3" class="d-block w-100" alt="...">
                     </div>
-                    <div :class="{ 'd-none': post.img4==null, 'carousel-item': post.img4!=null }">
+                    <div :class="{ 'd-none': post.img4 == null, 'carousel-item': post.img4 != null }">
                         <img :src="post.img4" class="d-block w-100" alt="...">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                <Buttontest cls="carousel-control-prev" name="Previous" to="prev" :nb="-1" @onActive="updateActive2" />
+                <Buttontest cls="carousel-control-next" name="Next" to="next" :nb="1" @onActive="updateActive2" />
             </div>
             <div class="row d-md-none mt-3 px-2">
                 <div class="col">
-                    <Img :img="post.img1" :active="false" :nb="0" :imgnb="1" />
+                    <Img :img="post.img1" :nb="0" :active="active" @onActive="updateActive" />
                 </div>
                 <div class="col">
-                    <Img :img="post.img2" :active="false" :nb="1" :imgnb="2" />
+                    <Img :img="post.img2" :nb="1" :active="active" @onActive="updateActive" />
                 </div>
                 <div class="col">
-                    <Img :class="{ 'd-none': post.img3==null}" :img="post.img3" :active="false" :nb="2"
-                        :imgnb="3" />
+                    <Img :class="{ 'd-none': post.img3 == null }" :img="post.img3" :active="active" :nb="2"
+                        @onActive="updateActive" />
                 </div>
                 <div class="col">
-                    <Img :class="{ 'd-none': post.img4==null }" :img="post.img4" :active="false" :nb="3"
-                        :imgnb="4" />
+                    <Img :class="{ 'd-none': post.img4 == null }" :img="post.img4" :nb="3" :active="active"
+                        @onActive="updateActive" />
                 </div>
             </div>
         </div>
@@ -80,18 +68,17 @@
                 <p>{{ post.sku }}</p>
                 <div><span>${{ post.price }}.00</span></div>
             </div>
-            <div class="text-center mt-3 bg-white py-3" v-show="post.size_s==0&&post.size_m==0&&post.size_l==0&&post.size_xl==0&&post.size_xxl==0">
-                OUT OF STOCK 
+            <div class="text-center mt-3 bg-white py-3"
+                v-show="post.size_s == 0 && post.size_m == 0 && post.size_l == 0 && post.size_xl == 0 && post.size_xxl == 0">
+                OUT OF STOCK
             </div>
-            <div class="py-3"
-                 :class="{'d-none': type=='accessories'}" 
-                 v-show="!(post.size_s==0&&post.size_m==0&&post.size_l==0&&post.size_xl==0&&post.size_xxl==0)"
-                 >
+            <div class="py-3" :class="{ 'd-none': type == 'accessories' }"
+                v-show="!(post.size_s == 0 && post.size_m == 0 && post.size_l == 0 && post.size_xl == 0 && post.size_xxl == 0)">
                 <span>Size:</span>
                 <ul class="list-unstyled d-flex gap-3 mt-2">
                     <li class="" style="position:relative">
-                        <input id="s" class="btn-check" type="radio" name="option-0" value="S" autocomplete="off"
-                            :disabled="post.size_s == 0" :checked="post.size_s == 1" />
+                        <input id="s" class="btn-check" type="radio" v-model="size" name="size" :value="'S'"
+                            autocomplete="off" :disabled="post.size_s == 0" />
                         <label for="s" class="px-3 py-2 btn bg-transparent rounded-0">S</label>
                         <svg :class="{ 'd-none': post.size_s == 1 }"
                             style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
@@ -99,8 +86,8 @@
                         </svg>
                     </li>
                     <li class="" style="position:relative">
-                        <input id="m" class="btn-check" type="radio" name="option-0" autocomplete="off" value="M"
-                            :disabled="post.size_m == 0" :checked="post.size_s == 0 && post.size_m == 1" />
+                        <input id="m" class="btn-check" type="radio" v-model="size" name="size" autocomplete="off"
+                            :value="'M'" :disabled="post.size_m == 0" />
                         <label for="m" class="px-3 py-2 btn bg-transparent rounded-0">M</label>
                         <svg :class="{ 'd-none': post.size_m == 1 }"
                             style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
@@ -108,9 +95,8 @@
                         </svg>
                     </li>
                     <li class="" style="position:relative">
-                        <input id="l" class="btn-check" type="radio" name="option-0" autocomplete="off" value="L"
-                            :disabled="post.size_l == 0"
-                            :checked="post.size_s == 0 && post.size_m == 0 && post.size_l == 1" />
+                        <input id="l" class="btn-check" type="radio" v-model="size" name="size" autocomplete="off"
+                            :value="'L'" :disabled="post.size_l == 0" />
                         <label for="l" class="px-3 py-2 btn bg-transparent rounded-0">L</label>
                         <svg :class="{ 'd-none': post.size_l == 1 }"
                             style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
@@ -118,9 +104,8 @@
                         </svg>
                     </li>
                     <li class="" style="position:relative">
-                        <input id="xl" class="btn-check" type="radio" name="option-0" autocomplete="off" value="XL"
-                            :disabled="post.size_xl == 0"
-                            :checked="post.size_s == 0 && post.size_m == 0 && post.size_l == 0 && post.size_xl == 1" />
+                        <input id="xl" class="btn-check" type="radio" v-model="size" name="size" autocomplete="off"
+                            :value="'XL'" :disabled="post.size_xl == 0" />
                         <label for="xl" class="px-3 py-2 btn bg-transparent rounded-0">XL</label>
                         <svg class="fs-6" :class="{ 'd-none': post.size_xl == 1 }"
                             style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
@@ -128,9 +113,8 @@
                         </svg>
                     </li>
                     <li class="" style="position:relative">
-                        <input id="xxl" class="btn-check" type="radio" name="option-0" autocomplete="off" value="XXL"
-                            :disabled="post.size_xxl == 0"
-                            :checked="post.size_s == 0 && post.size_m == 0 && post.size_l == 0 && post.size_xl == 0 && post.size_xxl == 1" />
+                        <input id="xxl" class="btn-check" type="radio" v-model="size" name="size" autocomplete="off"
+                            :value="'XXL'" :disabled="post.size_xxl == 0" />
                         <label for="xxl" class="px-3 py-2 btn bg-transparent rounded-0">XXL</label>
                         <svg class="fs-6" :class="{ 'd-none': post.size_xxl == 1 }"
                             style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
@@ -139,20 +123,30 @@
                     </li>
                 </ul>
             </div>
-            <div v-show="!(post.size_s==0&&post.size_m==0&&post.size_l==0&&post.size_xl==0&&post.size_xxl==0)">
+            <div
+                v-show="!(post.size_s == 0 && post.size_m == 0 && post.size_l == 0 && post.size_xl == 0 && post.size_xxl == 0)">
                 <span>Quantity:</span>
                 <div class="w-50">
-                <div class="border d-flex justify-content-around w-75 py-2 mt-2 px-1">
-                    <button class="border-0 bg-transparent"
-                        @click="quantity > 1 ? quantity-- : quantity">-</button><span>{{ quantity}}</span><button class="border-0 bg-transparent" @click="quantity++">+</button>
-                </div>
+                    <div class="border d-flex justify-content-around w-75 py-2 mt-2 px-1">
+                        <!-- <button class="border-0 bg-transparent"
+                        @click="$store.commit('decreaseQty')">-</button><span>{{ $store.state.qty }}</span><button class="border-0 bg-transparent" @click="$store.commit('increaseQty')">+</button> -->
+
+
+
+                        <button class="border-0 bg-transparent" @click="qty > 1 ? qty-- : qty">-</button><span>{{
+                            qty
+                        }}</span><button class="border-0 bg-transparent" @click="qty++">+</button>
+                    </div>
                 </div>
                 <div class="mt-3">
-                    <a data-bs-toggle="offcanvas" href="#cart" role="button" aria-controls="cart"
-                        class="btn bg-transparent border px-4 py-2 w-100">ADD TO CART</a>
+                    <a @click.prevent="addToCart" href="#cart" data-bs-toggle="offcanvas" role="button" aria-controls="cart"
+                        class="btn bg-transparent border px-4 py-2 w-100">ADD TO
+                        CART</a>
+                    <!-- href="#cart" -->
+                    <!-- data-bs-toggle="offcanvas" -->
                 </div>
                 <div class="mt-3">
-                    <a href="#" class="btn btn-dark px-4 py-2 w-100">BUY IT NOW</a>
+                    <a class="btn btn-dark px-4 py-2 w-100">BUY IT NOW</a>
                 </div>
             </div>
             <div class="py-3">
@@ -184,46 +178,155 @@
         </div>
     </section>
 
+    <section class="container-fluid bg-light p-5">
+        <div class="text-center fs-5 mb-5">
+            <p class="fs-3">YOU MAY ALSO LIKE</p>
+        </div>
+        <Card :posts="posts" :type="'men'" />
+    </section>
+
 </template>
 
-
-<!-- <script setup>
-import { Head } from '@inertiajs/inertia-vue3';
+<script>
 import Img from '../Shared/Img.vue';
+import ButtonImg from '../Shared/ButtonImg.vue';
+import Buttontest from '../Shared/Buttontest.vue';
+import { Head } from '@inertiajs/inertia-vue3';
+import axios from 'axios';
+import Card from '../Shared/Card.vue';
+export default {
+    components: { Img, ButtonImg, Buttontest, Card },
+    props: {
+        post: Object,
+        posts: Array,
+        type: String,
+        imgs: Number
+    },
+    data() {
+        return {
+            qty: 1,
+            size: '',
+            active: 0
+        };
+    },
+    methods: {
+        updateActive(nb) {
+            this.active = nb
+        },
+        updateActive2(nb) {
+            if (this.active < this.imgs) {
+                let x = this.active + nb
+                if (x == this.imgs) { this.active = 0 } else { this.active += nb }
+                if (x < 0) { this.active = 3 }
+            }
+        },
+    
+        addToCart() {
+                this.$store.dispatch('addProductToCart', {
+                    product: this.post,
+                    id: this.post.id,
+                    qty: this.qty,
+                    size: this.size
 
+                });
+            //     let response = await axios.post('/cart-men', { 'post_men_id': this.post.id, 'qty': this.qty, 'size': this.size });
+            //     // this.updateCart();
+            // }
+            // if (this.type == 'women') {
+            //     let response = await axios.post('/cart-women', { 'post_women_id': this.post.id, 'qty': this.qty, 'size': this.size });
+            //     // this.updateCart();
+            // }
 
+        },
+        updateCart() {
+            this.$store.dispatch('getProducts')
+        },
+        toggleCart() {
+            this.$store.dispatch('toggleCart')
+        },
+        getSize() {
+            return this.size = 's';
+        },
+        updateSize() {
+            if (this.post.size_s == 1) { return this.size = 'S' }
+            if (this.post.size_s == 0 && this.post.size_m == 1) { return this.size = 'M' }
+            if (this.post.size_s == 0 && this.post.size_m == 0 && this.post.size_l == 1) { return this.size = 'L' }
+            if (this.post.size_s == 0 && this.post.size_m == 0 && this.post.size_l == 0 && this.post.size_xl == 1) { return this.size = 'XL' }
+            if (this.post.size_s == 0 && this.post.size_m == 0 && this.post.size_l == 0 && this.post.size_xl == 0 && this.post.size_xxl == 1) { return this.size = 'XXL' }
+        }
 
-
-    post: Object,
-});
-
-
-
-
-console.log(size)
+    },
+    created: function () {
+        this.updateSize();
+    },
+};
 </script>
 
- -->
+
+
+
+
+
+
+
+
+
 
 
 
 
 <!-- 
-const size = require.context('/images/thumbnailsMen/95511-03-18')
-console.log(size.keys()) -->
-
-
-<script>
-import Img from '../Shared/Img.vue';
-import { Head } from '@inertiajs/inertia-vue3';
-export default {
-    components: { Img },
-    props: {
-        post: Object,
-        type: String
-    },
-    data() {
-        return { quantity: 1 };
-    },
-};
-</script>
+<div class="py-3" :class="{ 'd-none': type == 'accessories' }"
+v-show="!(post.size_s == 0 && post.size_m == 0 && post.size_l == 0 && post.size_xl == 0 && post.size_xxl == 0)">
+<span>Size:</span>
+<ul class="list-unstyled d-flex gap-3 mt-2">
+    <li class="" style="position:relative">
+        <input id="s" class="btn-check" type="radio" v-model="size" name="size" :value="'S'"
+            autocomplete="off" :disabled="post.size_s == 0" :checked="post.size_s == 1" />
+        <label for="s" class="px-3 py-2 btn bg-transparent rounded-0">S</label>
+        <svg :class="{ 'd-none': post.size_s == 1 }"
+            style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+            <line x1="0" y1="100%" x2="100%" y2="0" style="stroke:#999999; stroke-width:1"></line>
+        </svg>
+    </li>
+    <li class="" style="position:relative">
+        <input id="m" class="btn-check" type="radio" v-model="size" name="size" autocomplete="off"
+            :value="'M'" :disabled="post.size_m == 0" :checked="post.size_s == 0 && post.size_m == 1" />
+        <label for="m" class="px-3 py-2 btn bg-transparent rounded-0">M</label>
+        <svg :class="{ 'd-none': post.size_m == 1 }"
+            style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+            <line x1="0" y1="100%" x2="100%" y2="0" style="stroke:#999999; stroke-width:1"></line>
+        </svg>
+    </li>
+    <li class="" style="position:relative">
+        <input id="l" class="btn-check" type="radio" v-model="size" name="size" autocomplete="off"
+            :value="'L'" :disabled="post.size_l == 0"
+            :checked="post.size_s == 0 && post.size_m == 0 && post.size_l == 1" />
+        <label for="l" class="px-3 py-2 btn bg-transparent rounded-0">L</label>
+        <svg :class="{ 'd-none': post.size_l == 1 }"
+            style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+            <line x1="0" y1="100%" x2="100%" y2="0" style="stroke:#999999; stroke-width:1"></line>
+        </svg>
+    </li>
+    <li class="" style="position:relative">
+        <input id="xl" class="btn-check" type="radio" v-model="size" name="size" autocomplete="off"
+            :value="'XL'" :disabled="post.size_xl == 0"
+            :checked="post.size_s == 0 && post.size_m == 0 && post.size_l == 0 && post.size_xl == 1" />
+        <label for="xl" class="px-3 py-2 btn bg-transparent rounded-0">XL</label>
+        <svg class="fs-6" :class="{ 'd-none': post.size_xl == 1 }"
+            style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+            <line x1="0" y1="100%" x2="100%" y2="0" style="stroke:#999999; stroke-width:1"></line>
+        </svg>
+    </li>
+    <li class="" style="position:relative">
+        <input id="xxl" class="btn-check" type="radio" v-model="size" name="size" autocomplete="off"
+            :value="'XXL'" :disabled="post.size_xxl == 0"
+            :checked="post.size_s == 0 && post.size_m == 0 && post.size_l == 0 && post.size_xl == 0 && post.size_xxl == 1" />
+        <label for="xxl" class="px-3 py-2 btn bg-transparent rounded-0">XXL</label>
+        <svg class="fs-6" :class="{ 'd-none': post.size_xxl == 1 }"
+            style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+            <line x1="0" y1="100%" x2="100%" y2="0" style="stroke:#999999; stroke-width:1"></line>
+        </svg>
+    </li>
+</ul>
+</div> -->

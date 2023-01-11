@@ -112,7 +112,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ImgCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImgCard.vue */ "./resources/js/Shared/ImgCard.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _ImgCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImgCard.vue */ "./resources/js/Shared/ImgCard.vue");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Card',
@@ -124,7 +126,8 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var __returned__ = {
-      ImgCard: _ImgCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+      Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Link,
+      ImgCard: _ImgCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -276,41 +279,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "container-fluid bg-light"
-};
-var _hoisted_2 = {
   "class": "row align-items-center g-2 pb-3 px-2"
 };
-var _hoisted_3 = ["href"];
-var _hoisted_4 = {
+var _hoisted_2 = {
   id: "div",
   "class": "text-center h-75"
 };
-var _hoisted_5 = {
+var _hoisted_3 = {
   id: "out",
   "class": "text-dark bg-light rounded-0 p-2"
 };
-var _hoisted_6 = {
+var _hoisted_4 = {
   "class": "text-center mt-1"
 };
-var _hoisted_7 = {
+var _hoisted_5 = {
   "class": "card-title fs-6 text-truncate"
 };
-var _hoisted_8 = {
+var _hoisted_6 = {
   "class": "card-center mt-1"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.posts, function (post) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.posts, function (post) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       "class": "col-xl-3 col-md-4 col-sm-6 col-6",
       key: post.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+      "preserve-scroll": "",
       href: "/collections/".concat($props.type, "/").concat(post.slug),
       "class": "text-decoration-none text-dark"
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_5, " OUT OF STOCK ", 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, post.size_s == 0 && post.size_m == 0 && post.size_l == 0 && post.size_xl == 0 && post.size_xxl == 0]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ImgCard"], {
-      post: post
-    }, null, 8 /* PROPS */, ["post"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.price) + "$", 1 /* TEXT */)])])], 8 /* PROPS */, _hoisted_3)]);
-  }), 128 /* KEYED_FRAGMENT */))])]);
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_3, " OUT OF STOCK ", 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, post.size_s == 0 && post.size_m == 0 && post.size_l == 0 && post.size_xl == 0 && post.size_xxl == 0]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ImgCard"], {
+          post: post
+        }, null, 8 /* PROPS */, ["post"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.price) + "$", 1 /* TEXT */)])])];
+      }),
+
+      _: 2 /* DYNAMIC */
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["href"])]);
+  }), 128 /* KEYED_FRAGMENT */))]);
 }
 
 /***/ }),

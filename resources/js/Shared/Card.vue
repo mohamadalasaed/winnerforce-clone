@@ -1,26 +1,24 @@
 <template>
-    <section class="container-fluid bg-light">
         <div class="row align-items-center g-2 pb-3 px-2">
-            <div class="col-xl-3 col-md-4 col-sm-6  col-6" v-for="post in posts" :key="post.id">
-                <a :href="`/collections/${type}/${post.slug}`" class="text-decoration-none text-dark">
+            <div class="col-xl-3 col-md-4 col-sm-6  col-6" v-for="product in products" :key="product.id">
+                <Link preserve-scroll="" :href="`/collections/${type}/${product.slug}`" class="text-decoration-none text-dark">
                     <div id="div" class="text-center h-75">
                         <span 
-                            v-show="post.size_s==0&&post.size_m==0&&post.size_l==0&&post.size_xl==0&&post.size_xxl==0"
+                            v-show="product.size_s==0&&product.size_m==0&&product.size_l==0&&product.size_xl==0&&product.size_xxl==0"
                             id="out"
                             class="text-dark bg-light rounded-0 p-2"
                             >
                             OUT OF STOCK
                         </span>
-                        <ImgCard :post="post" />
+                        <ImgCard :product="product" />
                         <div class="text-center mt-1">
-                            <h5 class="card-title fs-6 text-truncate">{{ post.title }}</h5>
-                            <p class="card-center mt-1">{{ post.price }}$</p>
+                            <h5 class="card-title fs-6 text-truncate">{{ product.title }}</h5>
+                            <p class="card-center mt-1">{{ product.price }}$</p>
                         </div>
                     </div>
-                </a>
+                </Link>
             </div>
         </div>
-    </section>
 </template>
 <style>
     #div{
@@ -33,12 +31,11 @@
         z-index: 6;
     }
 </style>
-
-
 <script setup>
+import { Link } from '@inertiajs/inertia-vue3';
 import ImgCard from './ImgCard.vue';
 defineProps({
-    posts: Array,
+    products: Array,
     type: String
 })
 </script>

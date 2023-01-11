@@ -1,8 +1,22 @@
 <template>
-
-    <Head title="Mens Gym Wear | Workout Clothes for Men Winnerforce" />
-
-    <section class="my-4">
+    
+    <section v-if="this.type=='men'" class="my-4">
+        <div class="text-center">
+            <h4>MEN</h4>
+        </div>
+        <div class="text-center px-3">
+            <p>Deliver maximum results and reach your full athletic potential in our Men's<br>Collection. </p>
+        </div>
+    </section>
+    <section v-if="this.type=='women'" class="my-4">
+        <div class="text-center">
+            <h4>WOMEN</h4>
+        </div>
+        <div class="text-center px-3">
+            <p>Deliver maximum results and reach your full athletic potential in our WOMEN's<br>Collection. </p>
+        </div>
+    </section>
+    <section v-if="this.type=='accessories'" class="my-4">
         <div class="text-center">
             <h4>ACCESSORIES</h4>
         </div>
@@ -28,16 +42,17 @@
     </header>
 
 
-    <Card :posts="posts.data" :type="'accessories'"/>
+    <Card :products="products.data" :type="this.type"/>
 
-    <Pagination v-if="posts.data != 0" :links="posts.links" class="my-5" />
-    <div class="text-center my-4 px-3" v-if="posts.data == 0">
-        <p>No posts yet for {{ selectedOption }} category, Please check back later ;)</p>
+    <Pagination v-if="products.data != 0" :links="products.links" class="my-5" />
+
+    <div class="text-center my-4 px-3" v-if="products.data == 0">
+        <p>No products yet for {{ selectedOption }} category, Please check back later ;)</p>
     </div>
+
 </template>
 
 <script setup>
-import { Head } from '@inertiajs/inertia-vue3';
 import Card from '../Shared/Card.vue';
 import Pagination from '../Shared/Pagination.vue';
 import { ref, watch } from "vue";
@@ -45,17 +60,15 @@ import { Inertia } from "@inertiajs/inertia";
 import debounce from "lodash/debounce"
 
 let props = defineProps({
-    posts: Object,
+    products: Object,
     categories: Array,
     filters: Object,
-    all: String
+    type: String,
 });
-
-if (props.filters.page) { }
 
 let search = ref(null);
 watch(search, debounce(function (value) {
-    Inertia.get('/collections/accessories',
+    Inertia.get('',
         {
             ...(props.filters.category !== null ? { category: props.filters.category, search: value } : { search: value }),
             ...(props.filters.page !== null ? { page: props.filters.page, search: value } : { search: value }),
@@ -69,9 +82,10 @@ watch(search, debounce(function (value) {
 let selectedOption = (props.filters.category == null ? ref('All') : ref(props.filters.category));
 watch(selectedOption, value => {
     if (value == 'All' ) {
-        Inertia.get('/collections/accessories');
+        console.log(props)
+        Inertia.get('/collections/'+props.type);
     } else {
-        Inertia.get('/collections/accessories', {
+        Inertia.get('', {
             ...(props.filters.search !== null ? { category: value, search: props.filters.search } : { category: value }),
         }, {
             preserveState: true,
@@ -79,10 +93,4 @@ watch(selectedOption, value => {
         });
     }
 });
-
-// console.log(all);
-console.log(props.filters.search);
-console.log(props.filters.category);
-
-
 </script>
