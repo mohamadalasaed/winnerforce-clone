@@ -209,6 +209,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'CartHelper' => App\Http\Helpers\CartHelper::class
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

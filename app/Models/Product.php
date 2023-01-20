@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
     
-    // protected $with = ['category_id'];
+    // protected $with = ['category'];
 
     public function category()
     {
@@ -21,6 +21,10 @@ class Product extends Model
         $query->when($filters['search'] ?? false, fn ($query, $search) =>
         $query->where(fn ($query) =>
         $query->where('title', 'like', '%' . $search . '%')));
+
+        $query->when($filters['type'] ?? false, fn ($query, $type) =>
+        $query->where(fn ($query) =>
+        $query->where('type', $type)));
 
         $query->when($filters['category'] ?? false, fn ($query, $category) =>
         $query->whereHas('category', fn ($query) =>

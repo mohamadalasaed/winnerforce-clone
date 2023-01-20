@@ -18,7 +18,7 @@ class ProductsWomenController extends Controller
             ->paginate(32)
             ->withQueryString(),
             'categories' => Category::all()->where('type', 'women'),
-            'filters' => Request::only(['category','search','page']),
+            'filters' => Request::only(['category','search']),
             'type' => 'women'
         ]);
     }

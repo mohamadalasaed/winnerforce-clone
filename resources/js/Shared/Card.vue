@@ -1,7 +1,7 @@
 <template>
         <div class="row align-items-center g-2 pb-3 px-2">
             <div class="col-xl-3 col-md-4 col-sm-6  col-6" v-for="product in products" :key="product.id">
-                <Link preserve-scroll="" :href="`/collections/${type}/${product.slug}`" class="text-decoration-none text-dark">
+                <Link :href="`/collections/${type}/${product.slug}`" class="text-decoration-none text-dark">
                     <div id="div" class="text-center h-75">
                         <span 
                             v-show="product.size_s==0&&product.size_m==0&&product.size_l==0&&product.size_xl==0&&product.size_xxl==0"

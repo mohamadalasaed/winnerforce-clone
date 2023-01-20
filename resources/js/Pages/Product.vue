@@ -2,6 +2,7 @@
 
     <Head :title="`${product.title} - Winnerforce`" />
 
+    <div class="overflow-hidden">
     <section class="row justify-content-center bg-light border-bottom pb-5">
         <div class="col-xxl-5 col-lg-5 col-md-6">
             <div class="row mb-3 d-none d-md-flex mt-5 px-5">
@@ -22,10 +23,10 @@
             </div>
             <div id="carouselExampleDark" class="carousel carousel-dark slide">
                 <div class="carousel-indicators">
-                    <ButtonImg :nb="0" @onActive="updateActive" />
-                    <ButtonImg :nb="1" @onActive="updateActive" />
-                    <ButtonImg v-show="product.img3 != null" :nb="2" @onActive="updateActive" />
-                    <ButtonImg v-show="product.img4 != null" :nb="3" @onActive="updateActive" />
+                    <ButtonImg :nb="0" :active="active" @onActive="updateActive" />
+                    <ButtonImg :nb="1" :active="active" @onActive="updateActive" />
+                    <ButtonImg v-show="product.img3 != null" :active="active" :nb="2" @onActive="updateActive" />
+                    <ButtonImg v-show="product.img4 != null" :active="active" :nb="3" @onActive="updateActive" />
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
@@ -128,40 +129,17 @@
                 <span>Quantity:</span>
                 <div class="w-50">
                     <div class="border d-flex justify-content-around w-75 py-2 mt-2 px-1">
-                        <!-- <button class="border-0 bg-transparent"
-                        @click="$store.commit('decreaseQty')">-</button><span>{{ $store.state.qty }}</span><button class="border-0 bg-transparent" @click="$store.commit('increaseQty')">+</button> -->
-
-
-
                         <button class="border-0 bg-transparent" @click="qty > 1 ? qty-- : qty">-</button><span>{{
                             qty
                         }}</span><button class="border-0 bg-transparent" @click="qty++">+</button>
                     </div>
                 </div>
                 <div class="mt-3">
-                    <Link @click.prevent="addToCart" :href="this.$page.props.auth ? '#cart' : '#staticBackdrop'"
-                        :data-bs-toggle="this.$page.props.auth ? 'offcanvas' : 'modal'" aria-controls="cart"
+                    <Link @click.prevent="addToCart" href="#cart" data-bs-toggle="offcanvas" aria-controls="cart"
                         class="btn bg-transparent border px-4 py-2 w-100">ADD TO
                     CART</Link>
                     <!-- href="#cart" -->
                     <!-- data-bs-toggle="offcanvas" -->
-                </div>
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content bg-dark py-2">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5 text-light" id="staticBackdropLabel">YOU HAVE TO LOGIN
-                                    BEFORE ORDERING</h1>
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-footer">
-                                <Link as="button" href="/login" class="btn btn-light fw-bold" data-bs-dismiss="modal">GO
-                                TO LOGIN PAGE</Link>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="mt-3">
                     <Link class="btn btn-dark px-4 py-2 w-100">BUY IT NOW</Link>
@@ -202,21 +180,18 @@
         </div>
         <Card :products="randomProducts" :type="this.product.type" />
     </section>
+    </div>
 
 </template>
-
 <script>
 import { Link } from '@inertiajs/inertia-vue3';
 import Img from '../Shared/Img.vue';
 import ButtonImg from '../Shared/ButtonImg.vue';
 import Buttontest from '../Shared/Buttontest.vue';
 import { Head } from '@inertiajs/inertia-vue3';
-import axios from 'axios';
 import Card from '../Shared/Card.vue';
-import { Inertia } from '@inertiajs/inertia';
 export default {
-    components: {
-        Img, ButtonImg, Buttontest, Card, Link,},
+    components: {Img, ButtonImg, Buttontest, Card, Link, Head},
     props: {
         product: Object,
         randomProducts: Array
@@ -236,41 +211,20 @@ export default {
             if (this.active < this.product.imgs) {
                 let x = this.active + nb
                 if (x == this.product.imgs) { this.active = 0 } else { this.active += nb }
-                if (x < 0) { this.active = 3 }
+                if (x < 0) { this.active = this.product.imgs - 1 }
             }
         },
-
         addToCart() {
-            if (this.$page.props.auth) {
                 this.$store.dispatch('addProductToCart', {
                     product: this.product,
-                    id: this.product.id,
+                    product_id: this.product.id,
                     qty: this.qty,
-                    size: this.size
-
+                    size: this.size,
+                    img: this.product.img1,
+                    title: this.product.title,
+                    newprice: this.product.price
                 });
-                this.updateCart();
-            }
-            // } else {
-            //     Inertia.get('/login');
-            // }
-            //     let response = await axios.product('/cart-men', { 'product_men_id': this.product.id, 'qty': this.qty, 'size': this.size });
-
-            // }
-            // if (this.type == 'women') {
-            //     let response = await axios.product('/cart-women', { 'product_women_id': this.product.id, 'qty': this.qty, 'size': this.size });
-            //     // this.updateCart();
-            // }
-
-        },
-        updateCart() {
-            this.$store.dispatch('getProducts')
-        },
-        toggleCart() {
-            this.$store.dispatch('toggleCart')
-        },
-        getSize() {
-            return this.size = 's';
+                // this.$store.dispatch('getProducts')
         },
         updateSize() {
             if (this.product.size_s == 1) { return this.size = 'S' }
@@ -279,7 +233,6 @@ export default {
             if (this.product.size_s == 0 && this.product.size_m == 0 && this.product.size_l == 0 && this.product.size_xl == 1) { return this.size = 'XL' }
             if (this.product.size_s == 0 && this.product.size_m == 0 && this.product.size_l == 0 && this.product.size_xl == 0 && this.product.size_xxl == 1) { return this.size = 'XXL' }
         }
-
     },
     created: function () {
         this.updateSize();

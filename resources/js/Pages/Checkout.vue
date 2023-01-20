@@ -2,7 +2,7 @@
 
     <Head title="Information - Winnerforce - Checkout" />
 
-    <section class="container-sm">
+    <section class="container-sm pb-4 min-vh-100 overflow-auto">
         <div class="row justify-content-center flex-column-reverse flex-lg-row">
             <div class="col bg-white d-flex flex-column gap-3 mx-auto">
                 <div class="text-center">
@@ -39,7 +39,7 @@
                     </div>
                     <ul class="d-flex list-unstyled align-items-center gap-2">
                         <li><input type="checkbox" /></li>
-                        <li class="mb-1">Email me with news and offers</li>
+                        <li class="">Email me with news and offers</li>
                     </ul>
                 </div>
                 <div class="row gap-1">
@@ -65,7 +65,7 @@
                     <div><input class="w-100 mt-2 p-2 rounded border" type="text" placeholder="Phone" /></div>
                     <ul class="d-flex list-unstyled align-items-center gap-2">
                         <li><input class="w-100 mt-2 p-2 rounded border" type="checkbox" /></li>
-                        <li class="mb-1">Save this information for next time</li>
+                        <li>Save this information for next time</li>
                     </ul>
                     <div class="d-flex justify-content-between align-items-center mt-0">
                         <div class="fs-4">
@@ -73,26 +73,26 @@
                                 class="bi bi-chevron-left text-dark"></i>Return to home</Link>
                         </div>
                         <div class="text-muted">
-                            <Link href="/cart-checkout" method="post" class="btn btn-dark py-3">Complete order</Link>
+                            <Link @click="submit" class="btn btn-dark py-3">Complete order</Link>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-5 px-3 d-flex flex-column gap-3 mx-auto">
+            <div class="col col-lg-5 px-3 d-flex flex-column mx-auto bg-light">
                 <div class="d-flex justify-content-between border-bottom py-3" role="button" data-bs-toggle="collapse"
                     @click="this.$store.commit('setToggle')" data-bs-target="#collapseExample" aria-expanded="false"
                     aria-controls="collapseExample">
                     <Showbtn :toggle="!this.$store.state.toggle" />
                     <Hidebtn :toggle="this.$store.state.toggle" />
-                    <div class="my-auto fw-bold">${{ $store.state.total }}.00</div>
+                    <div class="my-auto fw-bold">${{ this.total }}.00</div>
                 </div>
                 <div id="collapseExample" class="collapse show">
-                    <div>
-                        <table v-for="product in cart" :key="product.id">
+                    <div class="mt-3">
+                        <table v-for="product in cartItems" :key="product.id">
                             <tr class="d-flex gap-3">
                                 <td class="position-relative">
                                     <span
-                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary text-white z-3">
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary text-white">
                                         {{ product.qty }}
                                     </span>
                                     <img id="img" class="img-fluid border rounded" :src="product.product.img1" />
@@ -120,7 +120,7 @@
                     <div class="d-flex flex-column gap-2">
                         <div class="d-flex justify-content-between">
                             <div class="text-muted">Subtotal</div>
-                            <div class="fw-bold">$34.00</div>
+                            <div class="fw-bold">${{this.total }}.00</div>
                         </div>
                         <div class="d-flex justify-content-between">
                             <div class="text-muted">Shipping</div>
@@ -129,7 +129,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-center border-top mt-3 py-2">
                         <div>Total</div>
-                        <div class="d-flex align-items-center">USD <h2 class="ms-3">${{ $store.state.total }}.00</h2>
+                        <div class="d-flex align-items-center">USD <h2 class="ms-3">${{this.total }}.00</h2>
                         </div>
                     </div>
                 </div>
@@ -147,37 +147,24 @@
 <script>
 import { Head } from '@inertiajs/inertia-vue3';
 import { Link } from '@inertiajs/inertia-vue3';
-import Showbtn from '../Shared/Showbtn.vue'
-import Hidebtn from '../Shared/Hidebtn.vue'
+import Showbtn from '../Shared/Showbtn.vue';
+import Hidebtn from '../Shared/Hidebtn.vue';
+import axios from "axios";
+import { Inertia } from '@inertiajs/inertia';
 export default {
+    layout: null,
     components: { Link, Head, Hidebtn, Showbtn },
     props: {
-        // products: Object,
-        // total: Number
-    },
-    beforeMount() {
-        if(this.$page.props.auth){
-            this.$store.dispatch('getProducts');
-        }
+         cartItems: Object,
+         total: Number
     },
     data() {
         return {
-
-        }
-    },
-    methods: {
-    },
-    computed: {
-        getcart() {
-            return this.$store.dispatch('getProducts')
-        },
-        cart() {
-            return this.$store.state.cart
-        }
-    },
-    created: function () {
-        if(this.$page.props.auth){
-            this.$store.getters['products']
+            async submit(){
+                await axios.post('/cart-checkout').then(response => {
+                    window.location.href = response.data.url;
+            });
+            }
         }
     },
 };

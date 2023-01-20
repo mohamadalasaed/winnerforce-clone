@@ -16,7 +16,7 @@ class ProductsAccessoriesController extends Controller
             ->paginate(32)
             ->withQueryString(),
             'categories' => Category::all()->where('type', 'accessories'),
-            'filters' => Request::only(['category','search','page']),
+            'filters' => Request::only(['category','search']),
             'type' => 'accessories'
         ]);
     }

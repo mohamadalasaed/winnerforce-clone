@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css2?family=Prosto+One&display=swap);
 @font-face {
   font-display: block;
   font-family: "bootstrap-icons";
@@ -2018,4 +2017,7 @@ url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff?6959d0d983ee318f88804e407
 .bi-tencent-qq::before { content: "\f8cb"; }
 .bi-wikipedia::before { content: "\f8cc"; }
 
- 
+/* body{
+letter-spacing: 1px;
+} */
+

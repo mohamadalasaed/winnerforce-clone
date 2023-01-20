@@ -1,5 +1,5 @@
 <template>
-    <header class="navbar-light sticky-top border-bottom border-opacity-50 p-2 bg-white">
+    <header class="container-fluidnavbar-light sticky-top border-bottom border-opacity-50 p-2 bg-white">
 
         <nav class="navbar navbar-expand-xl">
             <div class="container-fluid px-3 px-xl-5">
@@ -33,12 +33,11 @@
                     </Link>
                 </div>
 
-
                 <div class="offcanvas offcanvas-start h-100 bg-white" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <p class="fs-5 offcanvas-title" id="offcanvasNavbarLabel">Welcome back
-                            <strong>MohamadAlAsaed</strong>
+                        <p v-if="$page.props.auth" class="fs-5 offcanvas-title" id="offcanvasNavbarLabel">Welcome back
+                            <strong>{{ $page.props.auth.user.firstname }}</strong>
                         </p>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
@@ -165,11 +164,15 @@
                                 </div>
                             </li>
 
+                            <li class="my-auto" v-if="$page.props.auth">
+                                <Link v-if="$page.props.auth.user.email==='admin@gmail.com'" href="/admin?type=men" class="text-decoration-none text-danger">Admin Page</Link>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
                 <ul class="d-flex list-unstyled gap-2 justify-content-center align-items-center my-auto">
-                    <li v-if="$page.props.auth"><Link href="/logout" method="post" @click="this.$store.commit('setCartToEmpty')"><i
+                    <li v-if="$page.props.auth"><Link href="/logout" method="post" @click="this.$store.dispatch('getProducts');"><i
                                 class="bi bi-person-fill text-danger fs-4"></i></Link></li>
                     <li v-if="$page.props.auth == null"><Link href="/login"  @click="cart"><i
                                 class="bi bi-person-fill text-dark fs-4"></i></Link></li>
@@ -177,7 +180,7 @@
                         <Link href="/cart" class="position-relative" data-bs-toggle="offcanvas" data-bs-target="#cart"
                             aria-controls="cart">
                             <i class="bi bi-bag text-dark fs-4 position-relative"></i>
-                            <span v-show="JSON.stringify(this.$store.state.cart) != '[]'"
+                            <span v-if="$store.state.total !== 0"
                                 class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light rounded-circle">
                                 <span class="visually-hidden">New alerts</span>
                             </span>
@@ -186,6 +189,7 @@
                 </ul>
             </div>
         </nav>
+
         <div class="offcanvas offcanvas-end bg-light" :class="{ '': $store.state.toggle }" aria-expanded="true"
             tabindex="-1" id="cart" aria-labelledby="cartLabel">
             <div class="offcanvas-header border-bottom px-4">
@@ -193,69 +197,39 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body d-flex flex-column gap-3">
-                <div v-show="JSON.stringify(this.$store.state.cart) === '[]'" class="text-center my-auto">
+                <div v-if="JSON.stringify(this.$store.state.cart) === '[]'" class="text-center my-auto" v-motion-fade>
                     <p>YOUR CART IS EMPTY</p>
                 </div>
-                <div class="row justify-content-center" v-for="product in cart" :key="product.product.id">
-                    <ShortCartItem :product="product" :key="product.product.id" />
+                <div class="row justify-content-center" v-for="product in cart" :key="product.product_id+product.size">
+                    <ShortCartItem :product="product" />
                 </div>
             </div>
-
-            <div class="p-4 border-top d-flex flex-column">
+            <div v-if="JSON.stringify(this.$store.state.cart) !== '[]'" class="p-4 border-top d-flex flex-column" v-motion-fade>
                 <span class="text-dark">Add Order Note</span>
                 <span class="mt-1">Shispanping & taxes calculated at checkout</span>
                 <a href="/checkouts" class="btn btn-dark px-4 py-2 w-100 rounded-0 mt-4">CHECKOUT . ${{ $store.state.total }}.00
                     USD</a>
             </div>
         </div>
+
     </header>
 </template>
+
 <script>
 import { Link } from '@inertiajs/inertia-vue3';
 import ShortCartItem from '../Shared/ShortCartItem.vue';
 export default {
     components: { Link, ShortCartItem },
-    props: {
-    },
-    data() {
-    },
     beforeMount() {
-        if(this.$page.props.auth){
             this.$store.dispatch('getProducts');
-        }
     },
     computed: {
         cart() {
-            // if(this.$page.props.auth){
-            //     return this.$store.getters['products']
-            // }
             return this.$store.state.cart
         }
     },
-    // data() {
-    //     return {
-    //         quantity: 1,
-    //          cart: $store.dispatch('getProducts')
-    //     };
-    // },
-    // methods: {
-    //     getProducts() {
-    //         axios.get('/getproducts').then(response => {
-    //             this.cart = response.data.products;
-    //             this.count = response.data.count;
-    //         })
-    //     }
-    // },
-    // created() {
-    //     this.getProducts()
-    // }
-    // mounted(){
-    //     this.cart = $store.commit('decreaseQty')
-    //     }
     created: function () {
-        if(this.$page.props.auth){
             this.$store.getters['products']
-        }
     },
 };
 </script>

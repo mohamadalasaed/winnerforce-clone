@@ -14,12 +14,12 @@ class ProductsMenController extends Controller
     public function index(){
         // sleep(1);
         return inertia::render('Products', [
-            'products' => Product::oldest()->where('type','men')
+            'products' => Product::where('type','men')
             ->filter(request(['search', 'category']))
             ->paginate(32)
             ->withQueryString(),
             'categories' => Category::all()->where('type', 'men'),
-            'filters' => Request::only(['category','search','page']),
+            'filters' => Request::only(['category','search']),
             'type' => 'men'
         ]);
     }

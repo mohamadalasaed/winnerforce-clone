@@ -1,15 +1,15 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductsMenController;
 use App\Http\Controllers\ProductsWomenController;
 use App\Http\Controllers\ProductsAccessoriesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CartController;
-use App\Models\Cart;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -18,18 +18,9 @@ Route::get('/', function () {
     return inertia::render('Home', [
         'productsMen' => Product::all()->where('type', 'men')->take(4),
         'productsWomen' => Product::all()->where('type', 'women')->take(4),
-        'product' => Product::all()->where('type', 'men')->take(1)
+        'product' => Product::all()->where('type', 'men')->where('category_id', '14')->random(1),
     ]);
 });
-
-Route::get('/checkouts', function () {
-    return inertia::render('Checkout', [
-        // 'products' => Cart::latest()->where('user_id', auth()->user()->id)->with('product')->get(),
-        // 'total' => Cart::where('user_id', auth()->user()->id)->sum('price')
-    ]);
-})->middleware('auth')->name('login');
-
-
 
 Route::get('/collections/men', [ProductsMenController::class, 'index']);
 Route::get('/collections/men/{product:slug}', [ProductsMenController::class, 'show']);
@@ -40,25 +31,28 @@ Route::get('/collections/women/{product:slug}', [ProductsWomenController::class,
 Route::get('/collections/accessories', [ProductsAccessoriesController::class, 'index']);
 Route::get('/collections/accessories/{product:slug}', [ProductsAccessoriesController::class, 'show']);
 
-Route::get('login', [LoginController::class, 'index'])->middleware('guest');
+Route::get('login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('login', [LoginController::class, 'store']);
 Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth');
+
+Route::get('recover-password', [LoginController::class, 'reset_passwordView']);
+Route::post('reset-password', [LoginController::class, 'reset_password']);
+
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::post('/cart-store', [CartController::class, 'store'])->middleware('auth');
-Route::post('/cart-update', [CartController::class, 'update'])->middleware('auth');
-Route::post('/cart-delete', [CartController::class, 'destroy'])->middleware('auth');
-Route::post('/cart-checkout', [CartController::class, 'checkout'])->middleware('auth','api','cors');
+Route::get('/checkouts', [CartController::class, 'index'])->middleware('auth');
+Route::get('/getproducts', [CartController::class, 'getProducts']);
+Route::post('/cart-add', [CartController::class, 'add']);
+Route::post('/cart-update', [CartController::class, 'updateQuantity']);
+Route::post('/cart-remove', [CartController::class, 'remove']);
+Route::post('/cart-checkout', [CartController::class, 'checkout'])->middleware('auth');
 
-Route::get('/getproducts', function () {
-    // sleep(1);
-    $products = Cart::latest()->where('user_id', auth()->user()->id)->with('product')->get();
-    $total = Cart::where('user_id', auth()->user()->id)->sum('price');
-    return response()->json([
-        "products" => $products,
-        'total' => $total
-
-], 200);
-})->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->can('admin', 'App\\Models\User');
+    Route::get('/admin/{product}/edit', [AdminController::class, 'edit']);
+    Route::put('/admin/{product}', [AdminController::class, 'update']);
+    Route::delete('/admin/{product}', [AdminController::class, 'destroy']);
+    // Route::put('/admin/{product}/restore', [AdminController::class, 'restore']);
+});

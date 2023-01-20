@@ -57,7 +57,7 @@ __webpack_require__.r(__webpack_exports__);
           this.active += nb;
         }
         if (x < 0) {
-          this.active = 3;
+          this.active = this.product.imgs - 1;
         }
       }
     },

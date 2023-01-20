@@ -1,7 +1,7 @@
 <template>
     <div class="text-center">
       <Component
-        :is="link.url ? 'a' : 'span'"
+        :is="link.url ? 'Link' : 'span'"
         v-for="link in links"
         :href="link.url"
         v-html="link.label"
@@ -12,7 +12,9 @@
   </template>
   
   <script>
+  import {Link} from '@inertiajs/inertia-vue3';
   export default {
+    components: {Link},
     props: {
       links: Array
     }

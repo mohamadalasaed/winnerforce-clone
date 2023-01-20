@@ -2,7 +2,7 @@
 
     <Head title="Explore the innovative world of Winnerforce Gym clothes & Sportswear" />
 
-    <Link href="/collections/women" class="img"><img class="img-fluid w-100" src="images/women-e-commerce.webp" /></Link>
+    <div class="overflow-hidden"><Link href="/collections/women"><img id="imgHome" class="img-fluid w-100" src="https://cdn.shopify.com/s/files/1/0351/4928/3461/files/the-style-out--commerce3_2000x.jpg?v=1673357725" /></Link></div>
 
     <section class="container-fluid bg-light py-5">
         <div class="text-center fs-5 mb-5">
@@ -16,7 +16,7 @@
         </div>
     </section>
 
-    <Link href="/collections/men" class="img"><img class="img-fluid w-100" src="images/men-e-commerce.webp" /></Link>
+    <div class="overflow-hidden"><Link href="/collections/men" ><img id="imgHome" class="img-fluid w-100" src="https://cdn.shopify.com/s/files/1/0351/4928/3461/files/women-n-men--e-commerce1_2000x.jpg?v=1673357758" /></Link></div>
 
     <section class="container-fluid bg-light py-5 border-bottom">
         <div class="text-center fs-5 mb-5">
@@ -38,13 +38,13 @@
         <div class="mx-auto">
             <div class="row justify-content-center">
                 <div class="col-xl-4">
-                    <img :src="product[168].img1" class="img-fluid" />
+                    <img :src="product[0].img1" class="img-fluid" />
                 </div>
                 <div class="col-xl-4 border-end border-bottom">
                     <Link href="/collections/men" class="d-none d-xl-block">
                         <div class=" position-relative">
-                            <img :src="product[168].img1" class="img-fluid w-50" role="button" />
-                            <img id="img-hover" :src="product[168].img2" class="img-fluid w-50 z-3" role="button" />
+                            <img :src="product[0].img1" class="img-fluid w-50" role="button" />
+                            <img id="img-hover" :src="product[0].img2" class="img-fluid w-50 z-3" role="button" />
                         </div>
                     </Link>
                     <div class="w-50 mt-2 d-none d-xl-block">
@@ -58,7 +58,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="overflow-hidden">
         <div class="row align-items-center justify-content-center gap-5 px-5 py-5">
             <div class="col-xl-3 col-md-8">
                 <Link href="#" class="text-decoration-none text-dark">
@@ -97,7 +97,7 @@
     </section>
 </template>
 <style>
-.img {
+#imgHome {
     animation: scaleDown 1.5s ease-out;
 }
 
@@ -143,6 +143,6 @@ import Card from '../Shared/Card.vue';
 defineProps({
     productsMen: Object,
     productsWomen: Object,
-    product: Object
+    product: Array
 })
 </script>
