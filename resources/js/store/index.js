@@ -9,6 +9,7 @@ export default createStore({
         toggle: true,
         cart: [],
     },
+
     mutations: {
         decreaseQty(state) {
             state.qty > 1 ? state.qty-- : state.qty
@@ -36,7 +37,9 @@ export default createStore({
             let productInCart = state.cart.find(item => {
                 return (item.product_id === product_id && item.size === size) || (item.product_id === product_id && item.size === null);
             });
+
             let price = newprice * qty
+
             if (!productInCart) {
                 state.cart.unshift({ product_id, qty, size, title, price,img })
                 state.total += price
@@ -94,6 +97,7 @@ export default createStore({
             });
         }
     },
+
     actions: {
         async getProducts({ commit }) {
             await axios.get('/getproducts').then(response => {
@@ -114,10 +118,13 @@ export default createStore({
             commit('setType', newType)
         }
     },
+
     getters: {
         products: state => state.cart,
     },
+
     modules: {
 
-    }
+    },
+
 })

@@ -1,7 +1,10 @@
 <template>
-    <Head v-if="type=='men'" title="Men's Gym Wear | Workout Clothes for Men - WinnerForce"/>
-    <Head v-if="type=='women'" title="Women's Workout Clothes | Shop High Quality Gym Wear - WinnerForce"/>
-    <Head v-if="type=='accessories'" title="Total Gym Accessories | Sports Bottles | Unisex Socks - WinnerForce"/>
+
+    <Head v-if="type == 'men'" title="Men's Gym Wear | Workout Clothes for Men - WinnerForce" />
+
+    <Head v-if="type == 'women'" title="Women's Workout Clothes | Shop High Quality Gym Wear - WinnerForce" />
+
+    <Head v-if="type == 'accessories'" title="Total Gym Accessories | Sports Bottles | Unisex Socks - WinnerForce" />
 
     <section v-if="this.type == 'men'" class="my-4">
         <div class="text-center">
@@ -30,25 +33,25 @@
     </section>
 
     <div class="overflow-hidden">
-    <header class="row py-5 justify-content-center bg-light gap-3">
-        <div class="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center gap-2">
-            <h4 class="my-auto">Categories <i class="bi bi-filter-square text-dark"></i> :</h4>
-            <select class="form-select w-50 text-dark p-2 rounded fs-6 pointer" role="button"
-                aria-label="Default select example" id="select" v-model="selectedOption">
-                <option value="All" role="button" selected>All</option>
-                <option role="button" v-for="category in categories" :key="category.id" :value="category.name">{{
-                    category.name
-                }}
-                </option>
-            </select>
-        </div>
-        <div class="col-xl-4 col-md-5 col-sm-12 d-flex justify-content-center">
-            <input v-model="search" class="form-control w-75 me-2  p-2 rounded fs-6" type="search" placeholder="Search"
-                aria-label="Search" />
-        </div>
-    </header>
+        <header class="row py-5 justify-content-center bg-light gap-3">
+            <div class="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center gap-2">
+                <h4 class="my-auto">Categories <i class="bi bi-filter-square text-dark"></i> :</h4>
+                <select class="form-select w-50 text-dark p-2 rounded fs-6 pointer" role="button"
+                    aria-label="Default select example" id="select" v-model="selectedOption">
+                    <option value="All" role="button" selected>All</option>
+                    <option role="button" v-for="category in categories" :key="category.id" :value="category.name">{{
+                        category.name
+                    }}
+                    </option>
+                </select>
+            </div>
+            <div class="col-xl-4 col-md-5 col-sm-12 d-flex justify-content-center">
+                <input v-model="search" class="form-control w-75 me-2  p-2 rounded fs-6" type="search"
+                    placeholder="Search" aria-label="Search" />
+            </div>
+        </header>
 
-    <Card :products="products.data" :type="this.type" />
+        <Card :products="products.data" :type="this.type" />
     </div>
 
     <Pagination v-if="products.data != 0" :links="products.links" class="my-5" />
@@ -58,7 +61,6 @@
     </div>
 
 </template>
-
 
 <script setup>
 import Card from '../Shared/Card.vue';
@@ -89,17 +91,17 @@ watch(search, debounce(function (value) {
 
 let selectedOption = (props.filters.category == null ? ref('All') : ref(props.filters.category));
 watch(selectedOption, value => {
-    if(value == 'All'){
+    if (value == 'All') {
         Inertia.get('/collections/' + props.type);
-    }else{
+    } else {
         Inertia.get('/collections/' + props.type,
-        {
-            ...(props.filters.search !== null ? { search: props.filters.search, category: value } : { category: value })
-        },
-        {
-            preserveState: true,
-            replace: true
-        });
+            {
+                ...(props.filters.search !== null ? { search: props.filters.search, category: value } : { category: value })
+            },
+            {
+                preserveState: true,
+                replace: true
+            });
     }
 });
 </script>

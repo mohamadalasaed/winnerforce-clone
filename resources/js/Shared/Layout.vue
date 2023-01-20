@@ -9,21 +9,6 @@
 import Navbar from '../Shared/Navbar.vue';
 import Footer from '../Shared/Footer.vue';
 export default {
-    components: { Navbar, Footer },
-    props: {
-    },
-    data() {
-        return {
-            // cartitems: {}
-
-        }
-    },
-    // methods() {
-    //     return {
-    //         changeC(cart) {
-    //             this.cartitems = cart;
-    //         }
-    //     }
-    // }
+    components: { Navbar, Footer }
 };
 </script>

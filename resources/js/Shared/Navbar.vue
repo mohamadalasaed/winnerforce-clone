@@ -1,5 +1,6 @@
 <template>
-    <header class="container-fluidnavbar-light sticky-top border-bottom border-opacity-50 p-2 bg-white">
+
+    <header class="container-fluid navbar-light sticky-top border-bottom border-opacity-50 p-2 bg-white">
 
         <nav class="navbar navbar-expand-xl">
             <div class="container-fluid px-3 px-xl-5">
@@ -36,8 +37,8 @@
                 <div class="offcanvas offcanvas-start h-100 bg-white" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <p v-if="$page.props.auth" class="fs-5 offcanvas-title" id="offcanvasNavbarLabel">Welcome back
-                            <strong>{{ $page.props.auth.user.firstname }}</strong>
+                        <p v-if="$page.props.auth" class="fs-5 offcanvas-title" id="offcanvasNavbarLabel">
+                            Welcome back <strong>{{ $page.props.auth.user.firstname }}</strong>
                         </p>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
@@ -165,20 +166,28 @@
                             </li>
 
                             <li class="my-auto" v-if="$page.props.auth">
-                                <Link v-if="$page.props.auth.user.email==='admin@gmail.com'" href="/admin?type=men" class="text-decoration-none text-danger">Admin Page</Link>
+                                <Link v-if="$page.props.auth.user.email==='admin@gmail.com'" 
+                                      href="/admin?type=men" 
+                                      class="text-decoration-none text-danger">
+                                      Admin Page
+                                </Link>
                             </li>
-
                         </ul>
                     </div>
                 </div>
                 <ul class="d-flex list-unstyled gap-2 justify-content-center align-items-center my-auto">
-                    <li v-if="$page.props.auth"><Link href="/logout" method="post" @click="this.$store.dispatch('getProducts');"><i
-                                class="bi bi-person-fill text-danger fs-4"></i></Link></li>
-                    <li v-if="$page.props.auth == null"><Link href="/login"  @click="cart"><i
-                                class="bi bi-person-fill text-dark fs-4"></i></Link></li>
+                    <li v-if="$page.props.auth">
+                        <Link href="/logout" method="post" @click="this.$store.dispatch('getProducts')">
+                            <i class="bi bi-person-fill text-danger fs-4"></i>
+                        </Link>
+                    </li>
+                    <li v-if="$page.props.auth == null">
+                        <Link href="/login"  @click="cart">
+                            <i class="bi bi-person-fill text-dark fs-4"></i>
+                        </Link>
+                    </li>
                     <li class="mb-1">
-                        <Link href="/cart" class="position-relative" data-bs-toggle="offcanvas" data-bs-target="#cart"
-                            aria-controls="cart">
+                        <Link href="/cart" class="position-relative" data-bs-toggle="offcanvas" data-bs-target="#cart" aria-controls="cart">
                             <i class="bi bi-bag text-dark fs-4 position-relative"></i>
                             <span v-if="$store.state.total !== 0"
                                 class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light rounded-circle">
@@ -187,10 +196,11 @@
                         </Link>
                     </li>
                 </ul>
+
             </div>
         </nav>
 
-        <div class="offcanvas offcanvas-end bg-light" :class="{ '': $store.state.toggle }" aria-expanded="true"
+        <div class="offcanvas offcanvas-end bg-light" aria-expanded="true"
             tabindex="-1" id="cart" aria-labelledby="cartLabel">
             <div class="offcanvas-header border-bottom px-4">
                 <p class="offcanvas-title fs-5" id="cartLabel">CART</p>
@@ -207,8 +217,9 @@
             <div v-if="JSON.stringify(this.$store.state.cart) !== '[]'" class="p-4 border-top d-flex flex-column" v-motion-fade>
                 <span class="text-dark">Add Order Note</span>
                 <span class="mt-1">Shispanping & taxes calculated at checkout</span>
-                <a href="/checkouts" class="btn btn-dark px-4 py-2 w-100 rounded-0 mt-4">CHECKOUT . ${{ $store.state.total }}.00
-                    USD</a>
+                <a href="/checkouts" class="btn btn-dark px-4 py-2 w-100 rounded-0 mt-4">
+                    CHECKOUT . ${{ $store.state.total }}.00 USD
+                </a>
             </div>
         </div>
 

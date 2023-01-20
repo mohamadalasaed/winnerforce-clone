@@ -8,9 +8,10 @@
             <div class="col"><button @click="update" class="btn btn-dark w-100">Update</button></div>
             <div class="col"><button @click="destroy" class="btn btn-danger w-100">Delete</button></div>
         </div>
-        <div v-if="$page.props.flash.success" class="toast show position-absolute top-0 start-50 translate-middle-x mt-5" role="alert" aria-live="assertive" aria-atomic="true">
+        <div v-if="$page.props.flash.success" 
+             class="toast show position-absolute top-0 start-50 translate-middle-x mt-5" 
+             role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
-                <!-- <img src="..." class="rounded me-2" alt="..."> -->
                 <strong class="me-auto">Backend</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>

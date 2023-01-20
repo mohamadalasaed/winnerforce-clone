@@ -63,7 +63,7 @@
             <div class="col-xl-3 col-md-8">
                 <Link href="#" class="text-decoration-none text-dark">
                     <div id="f" class="position-relative">
-                        <img id="test position-absolute" src="https://cdn.shopify.com/s/files/1/0351/4928/3461/files/1120_750x960_crop_right.png?v=1670247602\" class="img-fluid"/>
+                        <img id="test position-absolute" class="img-fluid" src="https://cdn.shopify.com/s/files/1/0351/4928/3461/files/1120_750x960_crop_right.png?v=1670247602\"/>
                         <div class="position-absolute bottom-0 start-0 mb-5 ms-5">
                             <p class="display-6 fw-bold text-dark">SPORTS BRAS</p>
                             <button class="btn btn-light w-100 rounded-0 fs-4">view product</button>
@@ -74,7 +74,7 @@
             <div class="col-xl-3 col-md-8">
                 <Link href="#" class="text-decoration-none text-dark">
                     <div id="f" class="position-relative">
-                        <img id="test position-absolute" src="https://cdn.shopify.com/s/files/1/0351/4928/3461/files/1120_750x960_crop_right.png?v=1670247602\" class="img-fluid"/>
+                        <img id="test position-absolute" class="img-fluid" src="https://cdn.shopify.com/s/files/1/0351/4928/3461/files/1120_750x960_crop_right.png?v=1670247602\"/>
                         <div class="position-absolute bottom-0 start-0 mb-5 ms-5">
                             <p class="display-6 fw-bold text-dark">SPORTS BRAS</p>
                             <button class="btn btn-light w-100 rounded-0 fs-4">view product</button>
@@ -85,7 +85,7 @@
             <div class="col-xl-3 col-md-8">
                 <Link href="#" class="text-decoration-none text-dark">
                     <div id="f" class="position-relative">
-                        <img id="test position-absolute" src="https://cdn.shopify.com/s/files/1/0351/4928/3461/files/1120_750x960_crop_right.png?v=1670247602\" class="img-fluid"/>
+                        <img id="test position-absolute" class="img-fluid" src="https://cdn.shopify.com/s/files/1/0351/4928/3461/files/1120_750x960_crop_right.png?v=1670247602\"/>
                         <div class="position-absolute bottom-0 start-0 mb-5 ms-5">
                             <p class="display-6 fw-bold text-dark">SPORTS BRAS</p>
                             <button class="btn btn-light w-100 rounded-0 fs-4">view product</button>

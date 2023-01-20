@@ -129,17 +129,16 @@
                 <span>Quantity:</span>
                 <div class="w-50">
                     <div class="border d-flex justify-content-around w-75 py-2 mt-2 px-1">
-                        <button class="border-0 bg-transparent" @click="qty > 1 ? qty-- : qty">-</button><span>{{
-                            qty
-                        }}</span><button class="border-0 bg-transparent" @click="qty++">+</button>
+                        <button class="border-0 bg-transparent" @click="qty > 1 ? qty-- : qty">-</button>
+                        <span>{{qty}}</span>
+                        <button class="border-0 bg-transparent" @click="qty++">+</button>
                     </div>
                 </div>
                 <div class="mt-3">
                     <Link @click.prevent="addToCart" href="#cart" data-bs-toggle="offcanvas" aria-controls="cart"
-                        class="btn bg-transparent border px-4 py-2 w-100">ADD TO
-                    CART</Link>
-                    <!-- href="#cart" -->
-                    <!-- data-bs-toggle="offcanvas" -->
+                        class="btn bg-transparent border px-4 py-2 w-100">
+                        ADD TO CART
+                    </Link>
                 </div>
                 <div class="mt-3">
                     <Link class="btn btn-dark px-4 py-2 w-100">BUY IT NOW</Link>
@@ -224,7 +223,6 @@ export default {
                     title: this.product.title,
                     newprice: this.product.price
                 });
-                // this.$store.dispatch('getProducts')
         },
         updateSize() {
             if (this.product.size_s == 1) { return this.size = 'S' }

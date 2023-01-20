@@ -4,8 +4,8 @@
                 <Link :href="`/collections/${type}/${product.slug}`" class="text-decoration-none text-dark">
                     <div id="div" class="text-center h-75">
                         <span 
-                            v-show="product.size_s==0&&product.size_m==0&&product.size_l==0&&product.size_xl==0&&product.size_xxl==0"
-                            id="out"
+                            v-if="product.size_s==0&&product.size_m==0&&product.size_l==0&&product.size_xl==0&&product.size_xxl==0"
+                            id="outOfStock"
                             class="text-dark bg-light rounded-0 p-2"
                             >
                             OUT OF STOCK
@@ -24,7 +24,7 @@
     #div{
         position: relative;
     }
-    #out{
+    #outOfStock{
         position: absolute;
         top: 0;
         left: 0;

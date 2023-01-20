@@ -10,19 +10,32 @@
                     <p>Please fill in the information below:</p>
                 </header>
                 <div class="mt-2">
-                    <input v-model="form.firstname" type="text" name="firstname" class="form-control bg-transparent py-2 rounded-0" placeholder="First name" />
+                    <input v-model="form.firstname" 
+                           type="text" 
+                           name="firstname" 
+                           class="form-control bg-transparent py-2 rounded-0" 
+                           placeholder="First name" />
                     <div v-if="form.errors.firstname" v-text="form.errors.firstname" class="text-danger mt-1"></div>
                 </div>
                 <div class="mt-3">
-                    <input v-model="form.lastname" type="text" name="lastname" class="form-control bg-transparent py-2 rounded-0" placeholder="Last name" />
+                    <input v-model="form.lastname"
+                           type="text" name="lastname" 
+                           class="form-control bg-transparent py-2 rounded-0" 
+                           placeholder="Last name" />
                     <div v-if="form.errors.lastname" v-text="form.errors.lastname" class="text-danger mt-1"></div>
                 </div>
                 <div class="mt-3">
-                    <input v-model="form.email" type="email" name="email" class="form-control bg-transparent py-2 rounded-0" placeholder="Email" />
+                    <input v-model="form.email"
+                           type="email" name="email" 
+                           class="form-control bg-transparent py-2 rounded-0"
+                           placeholder="Email" />
                     <div v-if="form.errors.email" v-text="form.errors.email" class="text-danger mt-1"></div>
                 </div>
                 <div class="mt-3">
-                    <input v-model="form.password" type="password" name="password" class="form-control bg-transparent py-2 rounded-0" placeholder="Password">
+                    <input v-model="form.password" 
+                           type="password" name="password" 
+                           class="form-control bg-transparent py-2 rounded-0" 
+                           placeholder="Password">
                     <div v-if="form.errors.password" v-text="form.errors.password" class="text-danger mt-1"></div>
                 </div>
                 <div class="text-center mt-3">

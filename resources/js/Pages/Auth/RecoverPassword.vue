@@ -10,14 +10,18 @@
                     <p>Please enter your e-mail</p>
                 </header>
                 <div class="mt-2">
-                    <input v-model="form.email" type="email" class="form-control bg-transparent py-2 rounded-0" placeholder="Email" />
+                    <input v-model="form.email" 
+                           type="email" 
+                           class="form-control bg-transparent py-2 rounded-0" 
+                           placeholder="Email" />
                     <div v-if="form.errors.email" v-text="form.errors.email" class="text-danger mt-1"></div>
                 </div>
                 <div class="text-center mt-3">
                     <button class="btn btn-dark px-4 py-2 mx-auto w-100" :disabled="form.processing">RECOVER</button>
                 </div>
                 <div class="text-center mt-2">
-                    <p>Remember your password? <Link href="/login" class="text-decoration-none text-dark">Back to login</Link>
+                    <p> 
+                        Remember your password? <Link href="/login" class="text-decoration-none text-dark">Back to login</Link>
                     </p>
                 </div>
             </div>

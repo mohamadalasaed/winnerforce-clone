@@ -45,7 +45,10 @@
         
         <div class="row justify-content-center">
             <div class="col-lg-5 col-md-7 col-sm-10 col-10">
-                <input v-model="search" class="w-100 p-2 rounded fs-6 mx-auto" type="search" placeholder="Search" aria-label="Search" />
+                <input v-model="search" 
+                       class="w-100 p-2 rounded fs-6 mx-auto" 
+                       type="search" placeholder="Search" 
+                       aria-label="Search" />
             </div>
         </div>
 

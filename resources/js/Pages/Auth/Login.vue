@@ -10,19 +10,29 @@
                     <p>Please enter your e-mail and password:</p>
                 </header>
                 <div class="mt-2">
-                    <input v-model="form.email" type="email" class="form-control bg-transparent py-2 rounded-0" placeholder="Email" />
+                    <input v-model="form.email" 
+                           type="email" 
+                           class="form-control bg-transparent py-2 rounded-0" 
+                           placeholder="Email" />
                     <div v-if="form.errors.email" v-text="form.errors.email" class="text-danger mt-1"></div>
                 </div>
                 <div class="mt-3 position-relative">
-                    <input v-model="form.password" type="password" class="form-control bg-transparent py-2 rounded-0" placeholder="Password">
-                    <Link href="/recover-password" class="position-absolute top-50 end-0 translate-middle-y text-muted text-decoration-none fs-6 d-flex mx-2">Forgot password?</Link>
+                    <input v-model="form.password" 
+                           type="password" 
+                           class="form-control bg-transparent py-2 rounded-0" 
+                           placeholder="Password">
+                    <Link href="/recover-password" 
+                          class="position-absolute top-50 end-0 translate-middle-y text-muted text-decoration-none fs-6 d-flex mx-2">
+                          Forgot password?
+                    </Link>
                     <div v-if="form.errors.password" v-text="form.errors.password" class="text-danger mt-1"></div>
                 </div>
                 <div class="text-center mt-3">
                     <button class="btn btn-dark px-4 py-2 mx-auto w-100" :disabled="form.processing">LOGIN</button>
                 </div>
                 <div class="text-center mt-2">
-                    <p>Don't have an account? <Link href="/register" class="text-decoration-none text-dark">Create one</Link>
+                    <p>
+                        Don't have an account? <Link href="/register" class="text-decoration-none text-dark">Create one</Link>
                     </p>
                 </div>
             </div>

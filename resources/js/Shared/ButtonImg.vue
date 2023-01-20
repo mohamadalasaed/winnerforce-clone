@@ -1,8 +1,14 @@
 <template>
-
-    <button type="button" data-bs-target="#carouselExampleDark" :data-bs-slide-to="nb" :class="{'active':this.active == this.nb}"
-        @click="updateActive" aria-current="true" aria-label="Slide 1"></button>
-
+    <button 
+        @click="updateActive"
+        type="button"
+        data-bs-target="#carouselExampleDark" 
+        :data-bs-slide-to="nb" 
+        :class="{'active':this.active == this.nb}"
+        aria-current="true" 
+        aria-label="Slide 1"
+        >
+    </button>
 </template>
 <script>
 export default {
