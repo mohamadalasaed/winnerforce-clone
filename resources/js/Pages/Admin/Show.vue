@@ -3,7 +3,7 @@
     <Head title="Admin Section" />
 
     <section class="container-xl min-vh-100 bg-light d-flex flex-column gap-3">
-        <header class="m-auto position-relative pt-3">
+        <header class="position-relative pt-3">
             <div v-if="$page.props.flash.success"
                 class="toast show position-absolute top-0 start-50 translate-middle-x mt-5" role="alert"
                 aria-live="assertive" aria-atomic="true">

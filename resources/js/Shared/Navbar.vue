@@ -65,7 +65,7 @@
                                                 class="text-dark text-decoration-none">Pants</Link>
                                         </li>
                                         <li class="dropdown-item">
-                                            <Link href="/collections/men?category=T-shirt"
+                                            <Link href="/collections/men?category=T-Shirt"
                                                 class="text-dark text-decoration-none">T-Shirts</Link>
                                         </li>
                                         <li class="dropdown-item">

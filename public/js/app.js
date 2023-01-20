@@ -1364,7 +1364,7 @@ var _hoisted_1 = {
   "class": "container-xl min-vh-100 bg-light d-flex flex-column gap-3"
 };
 var _hoisted_2 = {
-  "class": "m-auto position-relative pt-3"
+  "class": "position-relative pt-3"
 };
 var _hoisted_3 = {
   key: 0,
@@ -3784,7 +3784,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-    href: "/collections/men?category=T-shirt",
+    href: "/collections/men?category=T-Shirt",
     "class": "text-dark text-decoration-none"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
